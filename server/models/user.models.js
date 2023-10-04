@@ -1,6 +1,11 @@
 import { schema, model, Schema } from 'mongoose'
 
 const userSchema = new Schema({
+    role: {
+        type: String,
+        enum: ['USER', 'ADMIN'],
+        default: 'USER'
+    },
     userName: {
         type: String,
         unique: true,
@@ -18,19 +23,33 @@ const userSchema = new Schema({
     email: {
         type: String,
         required: [true, 'Email is required'],
-        trim: true
+        trim: true,
+        unique: true,
+        match: [/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 'Please enter valid email']
     },
     password: {
         type: String,
         required: [true, 'Password is *'],
-        trim: true
+        trim: true,
+        select: false
     },
     confirmPassword: {
         type: String,
         required: [true, 'Confirm Password is *'],
-        trim: true
-    }
+        trim: true,
+        select: false
+    },
+    avatar: {
+        publicId: {
+            type: String,
+        },
+        secure_url: {
+            type: String,
+        }
+    },
+    forgetPasswordToken: String,
+    forgetPasswordExpiry: Date,
 
-})
+}, { timestamps: true })
 
 export default userSchema
