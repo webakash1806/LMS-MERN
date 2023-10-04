@@ -1,4 +1,4 @@
-import { schema, model, Schema } from 'mongoose'
+import { model, Schema } from 'mongoose'
 
 const userSchema = new Schema({
     role: {
@@ -11,7 +11,6 @@ const userSchema = new Schema({
         unique: true,
         lowercase: true,
         required: true,
-        trim: true
     },
     fullName: {
         type: String,
@@ -23,14 +22,12 @@ const userSchema = new Schema({
     email: {
         type: String,
         required: [true, 'Email is required'],
-        trim: true,
         unique: true,
         match: [/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 'Please enter valid email']
     },
     password: {
         type: String,
         required: [true, 'Password is *'],
-        trim: true,
         select: false
     },
     confirmPassword: {
@@ -52,4 +49,6 @@ const userSchema = new Schema({
 
 }, { timestamps: true })
 
-export default userSchema
+const User = model('User', userSchema)
+
+export default User

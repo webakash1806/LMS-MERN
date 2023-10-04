@@ -1,5 +1,7 @@
+
+
 const register = (req, res) => {
-    // register 
+    const { userName, fullName, email, password, confirmPassword } = req.body
 }
 
 const login = (req, res) => {
