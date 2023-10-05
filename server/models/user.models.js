@@ -4,49 +4,49 @@ import jwt from 'jsonwebtoken'
 
 const userSchema = new Schema({
     role: {
-        type: String,
+        type: 'String',
         enum: ['USER', 'ADMIN'],
         default: 'USER'
     },
     userName: {
-        type: String,
+        type: 'String',
         unique: true,
         lowercase: true,
         required: true,
     },
     fullName: {
-        type: String,
+        type: 'String',
         required: [true, 'Name is Required'],
         minLength: [5, 'Name must be more than 5 character'],
         maxLength: [30, 'Name should not be more than 30 character'],
         trim: true
     },
     email: {
-        type: String,
+        type: 'String',
         required: [true, 'Email is required'],
         unique: true,
         match: [/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 'Please enter valid email']
     },
     password: {
-        type: String,
+        type: 'String',
         required: [true, 'Password is *'],
         select: false
     },
     confirmPassword: {
-        type: String,
+        type: 'String',
         required: [true, 'Confirm Password is *'],
         trim: true,
         select: false
     },
     avatar: {
         publicId: {
-            type: String,
+            type: 'String',
         },
         secure_url: {
-            type: String,
+            type: 'String',
         }
     },
-    forgetPasswordToken: String,
+    forgetPasswordToken: 'String',
     forgetPasswordExpiry: Date,
 
 }, { timestamps: true })
