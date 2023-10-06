@@ -92,7 +92,16 @@ const login = async (req, res, next) => {
 }
 
 const logout = (req, res) => {
-    // logout
+    res.cookie('cookie', null, {
+        secure: true,
+        maxAge: 0,
+        httpOnly: true
+    })
+
+    res.status(200).json({
+        success: true,
+        message: "User Loged Out Successfully"
+    })
 }
 
 const profile = (req, res) => {
