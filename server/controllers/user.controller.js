@@ -104,8 +104,20 @@ const logout = (req, res) => {
     })
 }
 
-const profile = (req, res) => {
-    // profile
+const profile = async (req, res) => {
+    try {
+        const userId = req.user.id
+        const user = await User.findById(userId)
+
+        res.status(200).json({
+            success: true,
+            message: "User Details",
+            user
+        })
+    }
+    catch (err) {
+        return next(new AppError("Filed to fetch" + err.message, 500))
+    }
 }
 
 export { register, login, logout, profile }
