@@ -116,7 +116,7 @@ const profile = async (req, res) => {
         })
     }
     catch (err) {
-        return next(new AppError("Filed to fetch" + err.message, 500))
+        return next(new AppError("Failed to fetch" + err.message, 500))
     }
 }
 

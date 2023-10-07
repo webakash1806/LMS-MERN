@@ -7,6 +7,7 @@ const errorMiddleware = (err, req, res, next) => {
         message: err.message,
         stack: err.stack
     })
+
 }
 
 export default errorMiddleware
