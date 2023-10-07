@@ -4,12 +4,12 @@ import jwt from 'jsonwebtoken'
 
 const userSchema = new Schema({
     role: {
-        type: 'String',
+        type: String,
         enum: ['USER', 'ADMIN'],
         default: 'USER'
     },
     userName: {
-        type: 'String',
+        type: String,
         unique: true,
         lowercase: true,
         required: true,
