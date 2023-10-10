@@ -78,6 +78,8 @@ const login = async (req, res, next) => {
         user.password = undefined
         res.cookie('token', token, cookieOption)
 
+        console.log(token)
+
         res.status(200).json({
             success: true,
             message: 'Login Successfull!',
