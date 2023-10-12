@@ -1,5 +1,6 @@
 import User from "../models/user.models.js"
 import AppError from "../utils/error.utils.js"
+import cloudinary from 'cloudinary'
 
 const cookieOption = {
     maxAge: 7 * 24 * 60 * 60 * 1000,
@@ -38,6 +39,25 @@ const register = async (req, res, next) => {
 
     if (!user) {
         return next(new AppError('Registration Failed!', 400))
+    }
+
+    if (req.file) {
+        try {
+            const result = await cloudinary.v2.uploader.upload(req.file.path, {
+                folder: 'lms',
+                width: 250,
+                height: 250,
+                gravity: 'faces',
+                crop: 'fill'
+            })
+            if (result) {
+                user.avatar.public_id = result.public_id
+                user.avatar.secure_url = result.secure_url
+            }
+        }
+        catch (err) {
+
+        }
     }
 
     const token = await user.generateJWTToken()
