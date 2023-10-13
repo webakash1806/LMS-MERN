@@ -42,6 +42,7 @@ const register = async (req, res, next) => {
     }
 
     if (req.file) {
+        // console.log(req.file)
         try {
             const result = await cloudinary.v2.uploader.upload(req.file.path, {
                 folder: 'lms',
@@ -53,10 +54,12 @@ const register = async (req, res, next) => {
             if (result) {
                 user.avatar.public_id = result.public_id
                 user.avatar.secure_url = result.secure_url
+
+                fs.rm(`uploads/${req.file.filename}`)
             }
         }
         catch (err) {
-
+            return next(new AppError('Some error occured', 500))
         }
     }
 
