@@ -42,9 +42,6 @@ const register = async (req, res, next) => {
         return next(new AppError('Registration Failed!', 400))
     }
 
-    console.log(req.file)
-
-
     if (req.file) {
         try {
             const result = await cloudinary.v2.uploader.upload(req.file.path, {
