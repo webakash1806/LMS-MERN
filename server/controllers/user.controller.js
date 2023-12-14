@@ -5,8 +5,8 @@ import fs from 'fs/promises'
 
 const cookieOption = {
     maxAge: 7 * 24 * 60 * 60 * 1000,
-    httpOnly: true,
-    secure: true
+    // httpOnly: true,
+    // secure: true
 }
 
 const register = async (req, res, next) => {
@@ -122,16 +122,16 @@ const login = async (req, res, next) => {
 }
 
 const logout = (req, res) => {
-    res.cookie('cookie', null, {
-        secure: true,
-        maxAge: 0,
-        httpOnly: true
-    })
+    const token = ""
+    const cookiesOption = { logoutAt: new Date(), httpOnly: true }
 
-    res.status(200).json({
-        success: true,
-        message: "User Loged Out Successfully"
-    })
+    try {
+        res.cookie("token", token, cookiesOption)
+        res.status(200).json({ success: true, message: "Logged out" })
+    }
+    catch (e) {
+        return res.status(500).json({ success: false, message: e.message })
+    }
 }
 
 const profile = async (req, res) => {
