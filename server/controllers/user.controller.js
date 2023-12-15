@@ -102,11 +102,7 @@ const login = async (req, res, next) => {
         user.password = undefined
         res.cookie('token', token, cookieOption)
 
-        // if (token) {
-        //     return next(new AppError('User already logged in, Please Logout', 400))
-        // }
 
-        console.log(token)
 
         res.status(200).json({
             success: true,
