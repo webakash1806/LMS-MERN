@@ -10,5 +10,7 @@ router.post('/register', upload.single("avatar"), register)
 router.post('/login', loginAuth, login)
 router.get('/logout', logout)
 router.get('/me', isLoggedIn, profile)
+router.post('/forgot-password', forgotPassword)
+router.post('/reset-password', resetPassword)
 
 export default router

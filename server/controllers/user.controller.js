@@ -147,4 +147,41 @@ const profile = async (req, res) => {
     }
 }
 
-export { register, login, logout, profile }
+const forgotPassword = async (req, res) => {
+    const { email } = req.body
+    if (!email) {
+        return next(new AppError("Email is Required", 400))
+    }
+
+    const user = await User.findOne({ email })
+    if (!user) {
+        return next(new AppError("Email is not registered", 400))
+    }
+
+    const resetToken = await user.generatePasswordResetToken()
+    await user.save()
+
+    const resetPasswordURL = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`
+
+    try {
+        await sendEmail(email, subject, message)
+
+        res.status(200).json({
+            success: true,
+            message: 'Password reset link has been sent to your email'
+        })
+    } catch (e) {
+        user.forgetPasswordExpiry = undefined
+        user.forgetPasswordToken = undefined
+
+        await user.save()
+        return next(new AppError(e.message, 500))
+    }
+
+}
+
+const resetPassword = () => {
+
+}
+
+export { register, login, logout, profile, forgotPassword, resetPassword }
