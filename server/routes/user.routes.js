@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { register, login, logout, profile } from "../controllers/user.controller.js";
+import { register, login, logout, profile, forgotPassword, resetPassword } from "../controllers/user.controller.js";
 import { isLoggedIn } from "../middlewares/auth.middleware.js";
 import { loginAuth } from "../middlewares/login.middleware.js";
 import upload from '../middlewares/multer.middleware.js'

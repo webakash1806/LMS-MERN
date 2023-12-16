@@ -2,6 +2,7 @@ import User from "../models/user.models.js"
 import AppError from "../utils/error.utils.js"
 import cloudinary from 'cloudinary'
 import fs from 'fs/promises'
+import sendEmail from "../utils/sendEmail.js"
 
 const cookieOption = {
     maxAge: 7 * 24 * 60 * 60 * 1000,
@@ -147,7 +148,7 @@ const profile = async (req, res) => {
     }
 }
 
-const forgotPassword = async (req, res) => {
+const forgotPassword = async (req, res, next) => {
     const { email } = req.body
     if (!email) {
         return next(new AppError("Email is Required", 400))
@@ -162,6 +163,8 @@ const forgotPassword = async (req, res) => {
     await user.save()
 
     const resetPasswordURL = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`
+    const subject = 'Reset Password'
+    const message = `Reset your Password by clicking on this link <a href=${resetPasswordURL}/>`
 
     try {
         await sendEmail(email, subject, message)
