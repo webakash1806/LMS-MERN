@@ -2,6 +2,7 @@ import User from "../models/user.models.js"
 import AppError from "../utils/error.utils.js"
 import cloudinary from 'cloudinary'
 import fs from 'fs/promises'
+import bcrypt from 'bcryptjs'
 import sendEmail from "../utils/sendEmail.js"
 import crypto from 'crypto'
 
@@ -97,14 +98,19 @@ const login = async (req, res, next) => {
             email
         }).select('+password')
 
-        if (!user || !user.comparePassword(password)) {
-            return next(new AppError('Email or Password is wrong', 400))
+        console.log(user)
+
+        if (!user) {
+            return next(new AppError('Email is not registered', 400))
+        }
+
+        const passwordCheck = await user.comparePassword(password)
+        if (!passwordCheck) {
+            return next(new AppError('Password is wrong', 400))
         }
 
         const token = await user.generateJWTToken()
         res.cookie('token', token, cookieOption)
-
-
 
         res.status(200).json({
             success: true,
@@ -202,7 +208,6 @@ const resetPassword = async (req, res, next) => {
         forgetPasswordExpiry: { $gt: Date.now() }
     })
 
-    console.log(user)
 
     if (!user) {
         return next(new AppError('Token is Invalid or expired! please resend it', 400))
@@ -212,7 +217,7 @@ const resetPassword = async (req, res, next) => {
         return next(new AppError('Please Enter new Password', 400))
     }
 
-    user.password = password
+    user.password = await bcrypt.hash(password, 10)
     user.forgetPasswordToken = undefined
     user.forgetPasswordExpiry = undefined
 
