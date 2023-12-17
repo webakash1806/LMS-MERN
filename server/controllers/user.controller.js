@@ -3,6 +3,7 @@ import AppError from "../utils/error.utils.js"
 import cloudinary from 'cloudinary'
 import fs from 'fs/promises'
 import sendEmail from "../utils/sendEmail.js"
+import crypto from 'crypto'
 
 const cookieOption = {
     maxAge: 7 * 24 * 60 * 60 * 1000,
@@ -101,7 +102,6 @@ const login = async (req, res, next) => {
         }
 
         const token = await user.generateJWTToken()
-        user.password = undefined
         res.cookie('token', token, cookieOption)
 
 
@@ -166,6 +166,7 @@ const forgotPassword = async (req, res, next) => {
     const subject = 'Reset Password'
     const message = `Reset your Password by clicking on this link <a href=${resetPasswordURL}/>`
 
+    console.log(resetPasswordURL)
     try {
         await sendEmail(email, subject, message)
 
@@ -183,7 +184,44 @@ const forgotPassword = async (req, res, next) => {
 
 }
 
-const resetPassword = () => {
+const resetPassword = async (req, res, next) => {
+    const { resetToken } = req.params
+    const { password } = req.body
+
+    console.log(resetToken)
+
+    const forgetPasswordToken = crypto
+        .createHash('sha256')
+        .update(resetToken)
+        .digest('hex');
+
+    console.log(forgetPasswordToken)
+
+    const user = await User.findOne({
+        forgetPasswordToken,
+        forgetPasswordExpiry: { $gt: Date.now() }
+    })
+
+    console.log(user)
+
+    if (!user) {
+        return next(new AppError('Token is Invalid or expired! please resend it', 400))
+    }
+
+    if (!password) {
+        return next(new AppError('Please Enter new Password', 400))
+    }
+
+    user.password = password
+    user.forgetPasswordToken = undefined
+    user.forgetPasswordExpiry = undefined
+
+    await user.save()
+
+    res.status(200).json({
+        success: true,
+        message: 'Password reset successfull'
+    })
 
 }
 
