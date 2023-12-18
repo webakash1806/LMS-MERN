@@ -230,4 +230,50 @@ const resetPassword = async (req, res, next) => {
 
 }
 
-export { register, login, logout, profile, forgotPassword, resetPassword }
+
+const changePassword = async (req, res, next) => {
+    const { oldPassword, newPassword } = req.body
+    const { id } = req.user
+
+    if (!oldPassword || !newPassword) {
+        return next(new AppError('All fields are required', 400))
+    }
+
+    if (oldPassword === newPassword) {
+        return next(new AppError('New password is same as old password', 400))
+    }
+
+    const user = await User.findById(id).select('+password')
+
+    if (!user) {
+        return next(new AppError('User does not exist', 400))
+    }
+
+    const passwordValid = await user.comparePassword(oldPassword)
+
+    if (!passwordValid) {
+        return next(new AppError('Old Password is wrong', 400))
+    }
+
+    user.password = await bcrypt.hash(newPassword, 10)
+
+    await user.save()
+
+    user.password = undefined
+
+    res.status(200).json({
+        status: true,
+        message: 'Password Changed successfully'
+    })
+
+}
+
+export {
+    register,
+    login,
+    logout,
+    profile,
+    forgotPassword,
+    resetPassword,
+    changePassword
+}
