@@ -1,15 +1,14 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 
-import Footer from './Components/Footer'
+import HomePage from './Pages/HomePage'
 
 const App = () => {
   return (
     <>
-      <Footer />
-      {/* <Routes> */}
-      {/* <Route path="./" element={<Home/>} /> */}
-      {/* </Routes> */}
+      <Routes>
+        <Route path="/LMS-Client" element={<HomePage />} />
+      </Routes>
     </>
   )
 }
