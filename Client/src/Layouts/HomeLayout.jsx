@@ -44,7 +44,7 @@ const HomeLayout = ({ children }) => {
                                     )}
 
                                     <li><Link to=''>Course</Link></li>
-                                    <li><Link to=''>About</Link></li>
+                                    <li><Link to='/LMS-Client/about'>About</Link></li>
                                     <li><Link to=''>Contact</Link></li>
 
                                     {!isLoggedIn ?
@@ -91,7 +91,7 @@ const HomeLayout = ({ children }) => {
                                 <li><Link to='/LMS-Client/admin/dashboard'>Dashboard</Link></li>
                             )}
                             <li><Link to=''>Course</Link></li>
-                            <li><Link to=''>About</Link></li>
+                            <li><Link to='/LMS-Client/about'>About</Link></li>
                             <li><Link to=''>Contact</Link></li>
                             {!isLoggedIn ?
                                 <div className='flex items-center justify-center gap-3 mt-4 '>
