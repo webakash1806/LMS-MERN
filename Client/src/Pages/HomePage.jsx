@@ -6,19 +6,19 @@ const HomePage = () => {
 
     return (
         <HomeLayout>
-            <main className='text-white min-h-[90vh] py-8 flex flex-col-reverse items-center justify-center'>
-                <div className='p-3 px-5 text-center'>
-                    <h1 className='text-[2.2rem] font-semibold flex flex-col'>
+            <main className='text-white min-h-[90vh] py-8  md:pr-8 lg:pr-12 sm:py-4 flex flex-col-reverse md:flex-row items-center justify-center md:justify-around'>
+                <div className='p-3 px-5 text-center md:text-left md:w-[27rem] lg:w-[37rem]'>
+                    <h1 className='text-[2.2rem] md:text-[2.4rem] lg:text-[2.6rem] font-semibold flex flex-col lg:gap-3 lg:flex-row'>
                         Find Out Best
-                        <span className='pl-2 text-yellow-400'>
+                        <span className='text-yellow-400'>
                             Online Courses
                         </span>
                     </h1>
-                    <p className='font-[330] text-[0.97rem] py-3 tracking-[0.3px]'>
+                    <p className='font-[330] text-[0.97rem] py-3 tracking-[0.3px] lg:pb-8'>
                         Explore diverse coding courses, master programming languages, and build real-world projects with expert-led online tutorials for comprehensive skill development.
                     </p>
                     <div>
-                        <Link to='/courses'>
+                        <Link to='/LMS-Client/courses'>
                             <button className='bg-yellow-600 p-2 px-8 font-[500] tracking-wide rounded-md text-[1.05rem] hover:bg-yellow-700'>
                                 Explore Courses
                             </button>

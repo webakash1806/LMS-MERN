@@ -1,9 +1,25 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
 
 import Footer from '../Components/Footer'
 
 const HomeLayout = ({ children }) => {
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+
+    const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn)
+
+    const role = useSelector((state) => state?.auth?.role)
+
+    const handleLogout = async (e) => {
+        e.preventDefault()
+
+        const res = await dispatch(logout())
+    }
+
     return (
         <>
             <div>
@@ -22,10 +38,42 @@ const HomeLayout = ({ children }) => {
                                 <ul className="menu menu-horizontal">
                                     {/* Navbar menu content here */}
                                     <li><Link to='/LMS-Client'>Home</Link></li>
+
+                                    {isLoggedIn && role === 'ADMIN' && (
+                                        <li><Link to='/LMS-Client/admin/dashboard'>Dashboard</Link></li>
+                                    )}
+
                                     <li><Link to=''>Course</Link></li>
-                                    <li><Link to=''>Hall of fame</Link></li>
                                     <li><Link to=''>About</Link></li>
                                     <li><Link to=''>Contact</Link></li>
+
+                                    {!isLoggedIn ?
+                                        <div className='flex items-center justify-center gap-3 mt-1 '>
+                                            <button className='btn btn-primary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
+                                                <Link to='/login'>
+                                                    Login
+                                                </Link>
+                                            </button>
+                                            <button className='btn btn-secondary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
+                                                <Link to='/register'>
+                                                    Register
+                                                </Link>
+                                            </button>
+                                        </div>
+                                        :
+                                        <div className='flex items-center justify-center gap-3 mt-1'>
+                                            <button className='btn btn-primary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
+                                                <Link to='/user/me'>
+                                                    Profile
+                                                </Link>
+                                            </button>
+                                            <button className='btn btn-secondary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
+                                                <Link to='/logout' onClick={handleLogout}>
+                                                    Logout
+                                                </Link>
+                                            </button>
+                                        </div>
+                                    }
                                 </ul>
                             </div>
                         </div>
@@ -39,10 +87,39 @@ const HomeLayout = ({ children }) => {
                         <ul className="menu p-4 w-80 min-h-full bg-base-200">
                             {/* Sidebar content here */}
                             <li><Link to='/LMS-Client'>Home</Link></li>
+                            {isLoggedIn && role === 'ADMIN' && (
+                                <li><Link to='/LMS-Client/admin/dashboard'>Dashboard</Link></li>
+                            )}
                             <li><Link to=''>Course</Link></li>
-                            <li><Link to=''>Hall of fame</Link></li>
                             <li><Link to=''>About</Link></li>
                             <li><Link to=''>Contact</Link></li>
+                            {!isLoggedIn ?
+                                <div className='flex items-center justify-center gap-3 mt-4 '>
+                                    <button className='btn btn-primary btn-sm rounded-md px-8 text-[1.03rem] tracking-wide'>
+                                        <Link to='/login'>
+                                            Login
+                                        </Link>
+                                    </button>
+                                    <button className='btn btn-secondary btn-sm rounded-md px-8 text-[1.03rem] tracking-wide'>
+                                        <Link to='/register'>
+                                            Register
+                                        </Link>
+                                    </button>
+                                </div>
+                                :
+                                <div className='flex items-center justify-center gap-3 mt-4 '>
+                                    <button className='btn btn-primary btn-sm rounded-md px-8 text-[1.03rem] tracking-wide'>
+                                        <Link to='/user/me'>
+                                            Profile
+                                        </Link>
+                                    </button>
+                                    <button className='btn btn-secondary btn-sm rounded-md px-8 text-[1.03rem] tracking-wide'>
+                                        <Link to='/logout' onClick={handleLogout}>
+                                            Logout
+                                        </Link>
+                                    </button>
+                                </div>
+                            }
                         </ul>
                     </div>
                 </div>
