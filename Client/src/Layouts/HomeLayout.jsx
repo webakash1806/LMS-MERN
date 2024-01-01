@@ -55,7 +55,7 @@ const HomeLayout = ({ children }) => {
                                                 </Link>
                                             </button>
                                             <button className='btn btn-secondary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
-                                                <Link to='/register'>
+                                                <Link to='register'>
                                                     Register
                                                 </Link>
                                             </button>
@@ -101,7 +101,7 @@ const HomeLayout = ({ children }) => {
                                         </Link>
                                     </button>
                                     <button className='btn btn-secondary btn-sm rounded-md px-8 text-[1.03rem] tracking-wide'>
-                                        <Link to='/register'>
+                                        <Link to='register'>
                                             Register
                                         </Link>
                                     </button>
