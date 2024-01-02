@@ -1,10 +1,16 @@
 import React, { useState } from 'react'
+import { toast } from 'react-hot-toast'
 import { BsPersonCircle } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 
 import HomeLayout from '../Layouts/HomeLayout'
+import { createAccount } from '../Redux/Slices/AuthSlice';
 
 const SignupPage = () => {
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const [image, setImage] = useState('');
     const [registerData, setRegisterData] = useState({
@@ -37,15 +43,68 @@ const SignupPage = () => {
             fileReader.readAsDataURL(uploadedImg)
             fileReader.addEventListener('load', function () {
                 setImage(this.result)
-                console.log(this.result)
             })
         }
+    }
+
+    async function createNewAccount(e) {
+        e.preventDefault()
+        const { userName, fullName, email, password, confirmPassword, avatar } = registerData
+        if (!userName || !fullName || !email || !password || !confirmPassword || !avatar) {
+            return toast.error('Please fill all the fields!')
+        }
+
+        if (userName.length < 6) {
+            return toast.error('User name is too short!')
+        }
+
+        if (fullName.length < 6) {
+            return toast.error('Full name is too short!')
+        }
+
+        if (!email.match(/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/)) {
+            return toast.error('Email is Invalid!')
+        }
+
+        if (!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) {
+            return toast.error('Password must contain Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character!')
+        }
+
+        if (password !== confirmPassword) {
+            return toast.error('Password & confirm password are not same')
+        }
+
+
+        const formData = new FormData()
+        formData.append('userName', userName)
+        formData.append('fullName', fullName)
+        formData.append('email', email)
+        formData.append('password', password)
+        formData.append('confirmPassword', confirmPassword)
+        formData.append('avatar', avatar)
+
+        const response = await dispatch(createAccount(formData))
+        if (response?.payload?.success) {
+            navigate('/LMS-Client')
+
+        }
+
+        setRegisterData({
+            userName: "",
+            fullName: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+            avatar: "",
+        })
+
+        setImage('')
     }
 
     return (
         <HomeLayout>
             <div className='h-[100vh] flex items-center justify-center text-white'>
-                <form action="" className='flex flex-col items-center justify-center gap-[8px] bg-black p-4 rounded-lg shadow-md shadow-[#ffb7275a]'>
+                <form noValidate onSubmit={createNewAccount} action="" className='flex flex-col items-center justify-center gap-[8px] bg-black p-4 rounded-lg shadow-md shadow-[#ffb7275a]'>
                     <h1 className='font-semibold text-[1.4rem] tracking-[0.6px]'>Register</h1>
                     <label htmlFor="image_uploads" className='cursor-pointer'>
                         {
