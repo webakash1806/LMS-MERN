@@ -43,19 +43,19 @@ const HomeLayout = ({ children }) => {
                                         <li><Link to='/LMS-Client/admin/dashboard'>Dashboard</Link></li>
                                     )}
 
-                                    <li><Link to=''>Course</Link></li>
+                                    <li><Link to='/LMS-Client/course'>Course</Link></li>
                                     <li><Link to='/LMS-Client/about'>About</Link></li>
-                                    <li><Link to=''>Contact</Link></li>
+                                    <li><Link to='/LMS-Client/contact'>Contact</Link></li>
 
                                     {!isLoggedIn ?
                                         <div className='flex items-center justify-center gap-3 mt-1 '>
                                             <button className='btn btn-primary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
-                                                <Link to='/login'>
+                                                <Link to='/LMS-Client/login'>
                                                     Login
                                                 </Link>
                                             </button>
                                             <button className='btn btn-secondary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
-                                                <Link to='register'>
+                                                <Link to='/LMS-Client/register'>
                                                     Register
                                                 </Link>
                                             </button>
@@ -63,12 +63,12 @@ const HomeLayout = ({ children }) => {
                                         :
                                         <div className='flex items-center justify-center gap-3 mt-1'>
                                             <button className='btn btn-primary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
-                                                <Link to='/user/me'>
+                                                <Link to='/LMS-Client//user/me'>
                                                     Profile
                                                 </Link>
                                             </button>
                                             <button className='btn btn-secondary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
-                                                <Link to='/logout' onClick={handleLogout}>
+                                                <Link to='/LMS-Client//logout' onClick={handleLogout}>
                                                     Logout
                                                 </Link>
                                             </button>
@@ -90,18 +90,18 @@ const HomeLayout = ({ children }) => {
                             {isLoggedIn && role === 'ADMIN' && (
                                 <li><Link to='/LMS-Client/admin/dashboard'>Dashboard</Link></li>
                             )}
-                            <li><Link to=''>Course</Link></li>
+                            <li><Link to='/LMS-Client/course'>Course</Link></li>
                             <li><Link to='/LMS-Client/about'>About</Link></li>
-                            <li><Link to=''>Contact</Link></li>
+                            <li><Link to='/LMS-Client/contact'>Contact</Link></li>
                             {!isLoggedIn ?
                                 <div className='flex items-center justify-center gap-3 mt-4 '>
                                     <button className='btn btn-primary btn-sm rounded-md px-8 text-[1.03rem] tracking-wide'>
-                                        <Link to='/login'>
+                                        <Link to='/LMS-Client/login'>
                                             Login
                                         </Link>
                                     </button>
                                     <button className='btn btn-secondary btn-sm rounded-md px-8 text-[1.03rem] tracking-wide'>
-                                        <Link to='register'>
+                                        <Link to='/LMS-Client/register'>
                                             Register
                                         </Link>
                                     </button>
@@ -109,12 +109,12 @@ const HomeLayout = ({ children }) => {
                                 :
                                 <div className='flex items-center justify-center gap-3 mt-4 '>
                                     <button className='btn btn-primary btn-sm rounded-md px-8 text-[1.03rem] tracking-wide'>
-                                        <Link to='/user/me'>
+                                        <Link to='/LMS-Client//user/me'>
                                             Profile
                                         </Link>
                                     </button>
                                     <button className='btn btn-secondary btn-sm rounded-md px-8 text-[1.03rem] tracking-wide'>
-                                        <Link to='/logout' onClick={handleLogout}>
+                                        <Link to='/LMS-Client//logout' onClick={handleLogout}>
                                             Logout
                                         </Link>
                                     </button>

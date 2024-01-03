@@ -70,9 +70,6 @@ const SignupPage = () => {
             return toast.error('Password must contain Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character!')
         }
 
-        if (password !== confirmPassword) {
-            return toast.error('Password & confirm password are not same')
-        }
 
 
         const formData = new FormData()
@@ -85,13 +82,11 @@ const SignupPage = () => {
 
         const response = await dispatch(createAccount(formData))
 
-        console.log(response)
+
 
         if (response?.payload?.success) {
-            console.log('Redirecting to /LMS-Client');
             navigate("/LMS-Client");
         }
-
 
 
         setRegisterData({
@@ -176,7 +171,7 @@ const SignupPage = () => {
                     </div>
                     <button type='submit' className='bg-[#FFB827] hover:bg-[#fbb66d] duration-300 mt-2 text-[#000] w-full rounded-md p-[5px] font-semibold text-[1.05rem]'>Register</button>
 
-                    <p className='mt-2'>Already have an account? <Link to='LMS-Client/login' className='underline text-[#FFB827]'>Login</Link></p>
+                    <p className='mt-2'>Already have an account? <Link to='/LMS-Client/login' className='underline text-[#FFB827]'>Login</Link></p>
                 </form>
 
             </div>
