@@ -8,7 +8,7 @@ const initialState = {
     data: localStorage.getItem('data') || {}
 }
 
-export const createAccount = createAsyncThunk('/auth/register', async (data) => {
+export const createAccount = createAsyncThunk('/user/register', async (data) => {
     try {
         const res = axiosInstance.post('user/register', data)
         toast.promise(res, {

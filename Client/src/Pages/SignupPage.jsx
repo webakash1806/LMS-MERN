@@ -84,10 +84,15 @@ const SignupPage = () => {
         formData.append('avatar', avatar)
 
         const response = await dispatch(createAccount(formData))
-        if (response?.payload?.success) {
-            navigate('/LMS-Client')
 
+        console.log(response)
+
+        if (response?.payload?.success) {
+            console.log('Redirecting to /LMS-Client');
+            navigate("/LMS-Client");
         }
+
+
 
         setRegisterData({
             userName: "",
