@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 
 import Footer from '../Components/Footer'
+import { logout } from '../Redux/Slices/AuthSlice'
 
 const HomeLayout = ({ children }) => {
 
@@ -14,10 +15,17 @@ const HomeLayout = ({ children }) => {
 
     const role = useSelector((state) => state?.auth?.role)
 
+    useEffect(() => {
+
+    }, [isLoggedIn, role])
+
     const handleLogout = async (e) => {
         e.preventDefault()
-
         const res = await dispatch(logout())
+
+        if (res?.payload?.success) {
+            navigate("/LMS-Client")
+        }
     }
 
     return (
