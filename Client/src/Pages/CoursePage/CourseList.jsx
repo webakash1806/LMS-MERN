@@ -10,11 +10,8 @@ const CourseList = () => {
 
     const { courseData } = useSelector((state) => state.course)
 
-    // console.log(courseList)
-
     async function loadCourse() {
-        const res = await dispatch(getAllCourses())
-        console.log(res.payload)
+        await dispatch(getAllCourses())
     }
 
     useEffect(() => {

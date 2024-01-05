@@ -7,8 +7,6 @@ const initialState = {
     courseData: []
 }
 
-console.log(initialState)
-
 export const getAllCourses = createAsyncThunk("/course/get", async () => {
     try {
         let res = axiosInstance.get("/course")
@@ -18,8 +16,6 @@ export const getAllCourses = createAsyncThunk("/course/get", async () => {
             error: "Something went wrong!"
         })
         res = (await res).data.course
-        console.log(res)
-
         return res
     }
     catch (e) {
@@ -34,8 +30,6 @@ const courseSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(getAllCourses.fulfilled, (state, action) => {
             if (action.payload) {
-                console.log(state)
-                console.log(action.payload)
                 state.courseData = [...action.payload]
             }
         })

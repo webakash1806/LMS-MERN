@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 import AboutUs from './Pages/AboutUs'
+import AccessDeniedPage from './Pages/AccessDeniedPage'
 import CourseList from './Pages/CoursePage/CourseList'
 import HomePage from './Pages/HomePage'
 import LoginPage from './Pages/LoginPage'
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/LMS-Client/register" element={<SignupPage />} />
         <Route path="/LMS-Client/course" element={<CourseList />} />
         <Route path="*" element={<PageNotFound />} />
+        <Route path="/LMS-Client/contact" element={<AccessDeniedPage />} />
       </Routes>
     </>
   )
