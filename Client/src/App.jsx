@@ -1,10 +1,12 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 
+import RequireAuth from './Components/Auth/RequireAuth'
 import AboutUs from './Pages/AboutUs'
 import AccessDeniedPage from './Pages/AccessDeniedPage'
 import CourseDetail from './Pages/CoursePage/CourseDetail'
 import CourseList from './Pages/CoursePage/CourseList'
+import CreateCourse from './Pages/CoursePage/CreateCourse'
 import HomePage from './Pages/HomePage'
 import LoginPage from './Pages/LoginPage'
 import PageNotFound from './Pages/PageNotFound'
@@ -22,6 +24,10 @@ const App = () => {
         <Route path="/LMS-Client/course/description" element={<CourseDetail />} />
         <Route path="*" element={<PageNotFound />} />
         <Route path="/LMS-Client/contact" element={<AccessDeniedPage />} />
+
+        <Route element={<RequireAuth allowedRoles={['ADMIN']} />}>
+          <Route path="/LMS-Client/course/create" element={<CreateCourse />} />
+        </Route>
       </Routes>
     </>
   )

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 
 import eligibleImg from '../../assets/eligible.png'
@@ -11,6 +12,8 @@ const CourseDetail = () => {
     const { state } = useLocation()
 
     console.log(state)
+
+    const { role, data } = useSelector((state) => state?.auth)
 
     useEffect(() => {
 
@@ -26,10 +29,16 @@ const CourseDetail = () => {
                     <div className=' w-[95%] sm:w-[90%] md:w-[60vw]'>
                         <h2 className='text-[1.5rem] capitalize font-[600] tracking-wide '>{state?.title}</h2>
                         <p className='text-[0.95rem] text-[#dbdbdb] my-2'>{state?.description}</p>
-                        <button className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-10 text-[1.1rem] font-semibold rounded-md'>Enroll now.</button>
+
+                        {role === 'ADMIN' || data?.subscription?.status === 'ACTIVE' ? (
+                            <button className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-10 text-[1.1rem] font-semibold rounded-md'>Watch Lectures</button>
+
+                        ) :
+                            <button className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-10 text-[1.1rem] font-semibold rounded-md'>Enroll now</button>
+                        }
                     </div>
                 </div>
-                <div className='flex gap-2 flex-col w-[95%] sm:w-[90%] sm:flex-row sm:justify-around rounded-md bg-[#15191E] shadow-[2px_2px_9px_#000,-2px_-2px_1px_#3a3b3a] p-2 flex-wrap items-start justify-center md:gap-6'>
+                <div className='mt-4 flex gap-2 flex-col w-[95%] sm:w-[90%] sm:flex-row sm:justify-around rounded-md bg-[#15191E] shadow-[2px_2px_9px_#000,-2px_-2px_1px_#3a3b3a] p-2 flex-wrap items-start justify-center md:gap-6'>
                     <div className=' sm:text-center p-2'>
                         <p className='text-[1.25rem] capitalize font-semibold tracking-wide'>{state?.category}</p>
                         <p className='text-[0.85rem] font text-[#dbdbdb] tracking-wide'>Category</p>
