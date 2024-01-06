@@ -26,7 +26,7 @@ const AboutUs = () => {
                     </div>
                 </div>
                 <div className='flex flex-col items-center justify-center gap-2 text-white py-10'>
-                    <h1 className='text-[1.8rem] font-[610]  mb-3 bg-[#1D232A] p-1 px-5 rounded-md shadow-sm shadow-[#99659b]'>Who We Are?</h1>
+                    <h1 className='text-[1.8rem] font-[610]  mb-3 bg-[#1D232A] p-1 px-5 rounded-md'>Who We Are?</h1>
                     <div className='flex flex-col gap-2 md:gap-4 sm:flex-row items-center justify-center'>
                         <div className='flex flex-col gap-2 md:gap-4'>
                             <div className="card max-w-[19rem] rounded-md bg-[#d0faf3e5] text-primary-content">
@@ -55,7 +55,7 @@ const AboutUs = () => {
                     </div>
                 </div>
                 <div className='flex flex-col items-center justify-center gap-2 text-white py-10'>
-                    <h1 className='text-[1.8rem] font-[610]  mb-3 bg-[#1D232A] p-1 px-5 rounded-md shadow-sm shadow-[#6f9b65]'>What Sets Us Apart?</h1>
+                    <h1 className='text-[1.8rem] font-[610]  mb-3 bg-[#1D232A] p-1 px-5 rounded-md '>What Sets Us Apart?</h1>
                     <div className='flex flex-col gap-2 md:gap-4 sm:flex-row items-center justify-center'>
                         <div className="card max-w-[19rem] rounded-md bg-[#e6c2fbfb] text-primary-content h-[18.5rem] ">
                             <div className="card-body">

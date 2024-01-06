@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { toast } from 'react-hot-toast'
+import { BsPersonFill } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -57,17 +58,18 @@ const LoginPage = () => {
 
     return (
         <HomeLayout>
-            <div className='h-[100vh] flex items-center justify-center text-white'>
-                <form noValidate onSubmit={login} action="" className='flex flex-col items-center justify-center gap-[8px] bg-black p-4 rounded-lg shadow-md shadow-[#ffb7275a]'>
-                    <h1 className='font-semibold text-[1.4rem] tracking-[0.6px]'>Login</h1>
-
-
+            <div className='min-h-[90vh] flex items-center justify-center pb-20 text-white bg-[#15191d]'>
+                <form noValidate onSubmit={login} action="" className='relative h-fit py-8 flex flex-col items-center justify-center gap-[9px] mt-12 bg-[#1A202A] p-4 rounded-lg rounded-tl-none shadow-md shadow-[#6D75DE]'>
+                    <div className='flex items-center bg-[#1A202A] justify-between w-fit p-2 gap-3 pr-5 rounded-lg left-0 rounded-b-none absolute top-[-2.7rem] text-[1.1rem]'>
+                        <BsPersonFill className='text-[#BEC1FC] text-[1.3rem]' />
+                        <h1 className='tracking-wide'>Login</h1>
+                    </div>
 
                     <div className="flex flex-col items-start justify-center gap-[0.5px]">
-                        <label htmlFor="email" className='text-[0.82rem] font-semibold'>Email
+                        <label htmlFor="email" className='text-[#a6b0bb] font-semibold text-[0.85rem] tracking-wide'>Email
                         </label>
                         <input type="email" required
-                            className='p-1 px-2 rounded-md text-[0.92rem] min-w-[17rem] sm:w-[19.5rem] outline-none shadow-sm shadow-[#FFB827] text-[#FFB827] bg-[#2c2c2ca1]'
+                            className='min-w-[17rem] sm:w-[20.5rem] rounded-[3px] border h-full border-[#2d3a4b] p-2 focus:border-[#745FDC]  outline-none bg-transparent text-[0.95rem] tracking-wide resize-none'
                             name='email'
                             id='email'
                             placeholder='Enter Email...'
@@ -76,10 +78,10 @@ const LoginPage = () => {
                     </div>
 
                     <div className="flex flex-col items-start justify-center gap-[0.5px]">
-                        <label htmlFor="password" className='text-[0.82rem] font-semibold'>Password
+                        <label htmlFor="password" className='text-[#a6b0bb] font-semibold text-[0.85rem] tracking-wide'>Password
                         </label>
                         <input type="password" required
-                            className='p-1 px-2 rounded-md text-[0.92rem] min-w-[17rem] sm:w-[19.5rem] outline-none shadow-sm shadow-[#FFB827] text-[#FFB827] bg-[#2c2c2ca1]'
+                            className='min-w-[17rem] sm:w-[20.5rem] rounded-[3px] border h-full border-[#2d3a4b] p-2 focus:border-[#745FDC]  outline-none bg-transparent text-[0.95rem] tracking-wide resize-none'
                             name='password'
                             id='password'
                             placeholder='Enter Password...'
