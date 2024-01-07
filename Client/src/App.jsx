@@ -7,6 +7,7 @@ import AccessDeniedPage from './Pages/AccessDeniedPage'
 import CourseDetail from './Pages/CoursePage/CourseDetail'
 import CourseList from './Pages/CoursePage/CourseList'
 import CreateCourse from './Pages/CoursePage/CreateCourse'
+import EditProfile from './Pages/EditProfile'
 import HomePage from './Pages/HomePage'
 import LoginPage from './Pages/LoginPage'
 import PageNotFound from './Pages/PageNotFound'
@@ -31,6 +32,7 @@ const App = () => {
         </Route>
 
         <Route path="/LMS-Client/me" element={<Profile />} />
+        <Route path="/LMS-Client/profile/edit" element={<EditProfile />} />
       </Routes>
     </>
   )
