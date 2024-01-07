@@ -10,6 +10,7 @@ import CreateCourse from './Pages/CoursePage/CreateCourse'
 import HomePage from './Pages/HomePage'
 import LoginPage from './Pages/LoginPage'
 import PageNotFound from './Pages/PageNotFound'
+import Profile from './Pages/Profile'
 import SignupPage from './Pages/SignupPage'
 
 const App = () => {
@@ -28,6 +29,8 @@ const App = () => {
         <Route element={<RequireAuth allowedRoles={['ADMIN']} />}>
           <Route path="/LMS-Client/course/create" element={<CreateCourse />} />
         </Route>
+
+        <Route path="/LMS-Client/me" element={<Profile />} />
       </Routes>
     </>
   )

@@ -69,10 +69,10 @@ const HomeLayout = ({ children }) => {
                                         </div>
                                         :
                                         <div className='flex items-center justify-center gap-3 mt-1'>
-                                            <Link to='/LMS-Client//user/me' className='btn btn-primary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
+                                            <Link to='/LMS-Client/me' className='btn btn-primary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
                                                 Profile
                                             </Link>
-                                            <Link to='/LMS-Client//logout' onClick={handleLogout} className='btn btn-secondary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
+                                            <Link to='/LMS-Client/logout' onClick={handleLogout} className='btn btn-secondary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
                                                 Logout
                                             </Link>
                                         </div>
@@ -110,10 +110,10 @@ const HomeLayout = ({ children }) => {
                                 </div>
                                 :
                                 <div className='flex items-center justify-center gap-3 mt-4 '>
-                                    <Link to='/LMS-Client//user/me' className='btn btn-primary btn-sm rounded-md px-9 text-[1.03rem] tracking-wide'>
+                                    <Link to='/LMS-Client/me' className='btn btn-primary btn-sm rounded-md px-9 text-[1.03rem] tracking-wide'>
                                         Profile
                                     </Link>
-                                    <Link to='/LMS-Client//logout' onClick={handleLogout} className='btn btn-secondary btn-sm rounded-md px-9 text-[1.03rem] tracking-wide'>
+                                    <Link to='/LMS-Client/logout' onClick={handleLogout} className='btn btn-secondary btn-sm rounded-md px-9 text-[1.03rem] tracking-wide'>
                                         Logout
                                     </Link>
                                 </div>
