@@ -71,7 +71,7 @@ const CourseDetail = () => {
                                                 <strike>{state?.price.toFixed(2)}</strike></div>
                                             <p className='text-[#00ff59] text-[1rem] flex items-center gap-2'><img src={discountImg} alt="" className='w-[19px]' />{`${state?.discount}% Discount`}</p>
                                         </div>
-                                        <button className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-10 text-[1.1rem] font-semibold rounded-md'>Enroll now</button>
+                                        <button onClick={() => navigate('/LMS-Client/checkout')} className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-10 text-[1.1rem] font-semibold rounded-md'>Enroll now</button>
                                     </div>
                                 )
                             }

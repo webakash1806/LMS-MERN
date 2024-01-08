@@ -11,6 +11,7 @@ import EditProfile from './Pages/EditProfile'
 import HomePage from './Pages/HomePage'
 import LoginPage from './Pages/LoginPage'
 import PageNotFound from './Pages/PageNotFound'
+import CheckoutPage from './Pages/Payment/CheckoutPage'
 import Profile from './Pages/Profile'
 import SignupPage from './Pages/SignupPage'
 
@@ -31,8 +32,11 @@ const App = () => {
           <Route path="/LMS-Client/course/create" element={<CreateCourse />} />
         </Route>
 
+        {/* <Route element={<RequireAuth allowedRoles={['ADMIN', 'USER']} />}> */}
         <Route path="/LMS-Client/me" element={<Profile />} />
         <Route path="/LMS-Client/profile/edit" element={<EditProfile />} />
+        <Route path="/LMS-Client/checkout" element={<CheckoutPage />} />
+        {/* </Route> */}
       </Routes>
     </>
   )
