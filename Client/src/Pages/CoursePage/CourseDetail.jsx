@@ -28,8 +28,8 @@ const CourseDetail = () => {
 
     return (
         <HomeLayout>
-            <div className='flex flex-col w-screen items-center justify-center overflow-hidden'>
-                <div className='min-h-[90vh] w-screen bg-gradient-to-b from-[#15191E]   to-[#111371ea]  flex flex-col text-white items-center gap-6 p-5 py-12 sm:px-20 md:px-4 lg:px-[10vw]'>
+            <div className='flex flex-col w-full items-center justify-center '>
+                <div className='min-h-[90vh] w-full bg-gradient-to-b  overflow-x-hidden from-[#15191E]   to-[#111371ea]  flex flex-col text-white items-center gap-6 p-5 py-12 sm:px-20 md:px-4 lg:px-[10vw]'>
                     <div className='flex flex-col md:w-[90%] md:flex-row-reverse w-full items-center justify-around md:justify-between gap-3 md:gap-6'>
                         <img
                             className='min-w-[95%] sm:min-w-[90%] md:min-w-[20rem]  border h-[11rem] sm:h-[13rem] md:h-[11rem] rounded-md object-cover'
@@ -105,30 +105,22 @@ const CourseDetail = () => {
                         <div className="collapse collapse-arrow join-item border border-[#2d3a4b] bg-[#1A202A]">
                             <input type="radio" name="my-accordion-4" />
                             <div className="collapse-title text-xl font-medium">
-                                Click to open this one and close others
+                                Is the course live or recorded?
                             </div>
                             <div className="collapse-content text-white">
-                                <p>hello</p>
+                                <p>All lectures are recorded.</p>
                             </div>
                         </div>
                         <div className="collapse collapse-arrow join-item border border-[#2d3a4b] bg-[#1A202A]">
                             <input type="radio" name="my-accordion-4" />
                             <div className="collapse-title text-xl font-medium">
-                                Click to open this one and close others
+                                Do the courses start from the basics ?
                             </div>
                             <div className="collapse-content text-white">
-                                <p>hello</p>
+                                <p>Yes every course starts from the very basics until it is specifically mentioned otherwise.</p>
                             </div>
                         </div>
-                        <div className="collapse collapse-arrow join-item border border-[#2d3a4b] bg-[#1A202A]">
-                            <input type="radio" name="my-accordion-4" />
-                            <div className="collapse-title text-xl font-medium">
-                                Click to open this one and close others
-                            </div>
-                            <div className="collapse-content text-white">
-                                <p>hello</p>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>

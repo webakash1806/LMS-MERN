@@ -83,7 +83,7 @@ const EditProfile = () => {
                 <form noValidate onSubmit={updateProfile} className='relative h-fit flex flex-col md:flex-row md:gap-[2rem] items-center justify-center gap-[9px] my-8 bg-[#1A202A] p-5 sm:p-10 rounded-lg rounded-tl-none shadow-md shadow-[#6D75DE]'>
                     <div className='flex items-center bg-[#1A202A] justify-between w-fit p-2 gap-3 pr-5 rounded-lg left-0 rounded-b-none absolute top-[-2.7rem] text-[1.1rem]'>
                         <BsPersonFill className='text-[#BEC1FC] text-[1.3rem]' />
-                        <h1 className='tracking-wide'>Profile</h1>
+                        <h1 className='tracking-wide'>Update Profile</h1>
                     </div>
                     <div className='flex gap-[12px] flex-col items-center md:items-start justify-start'>
                         <div className='md:mb-4'>
