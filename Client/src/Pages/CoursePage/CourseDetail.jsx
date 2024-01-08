@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { useLocation } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import discountImg from '../../assets/discount.png'
 import eligibleImg from '../../assets/eligible.png'
@@ -8,12 +8,28 @@ import mailImg from '../../assets/mail.png'
 import skillsImg from '../../assets/skills.png'
 import videoImg from '../../assets/video.png'
 import HomeLayout from '../../Layouts/HomeLayout'
+import { deleteCourse } from '../../Redux/Slices/CourseSlice'
 
 const CourseDetail = () => {
     const { state } = useLocation()
     const [coursePrice, setCoursePrice] = useState(1)
 
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
     const { role, data } = useSelector((state) => state?.auth)
+
+    const courseId = state?._id
+    console.log(courseId)
+
+    const removeCourse = async (e) => {
+        e.preventDefault()
+        const response = await dispatch(deleteCourse(courseId))
+
+        if (response?.payload?.success) {
+            navigate('/LMS-Client/course')
+        }
+    }
 
     const priceAfterDiscount = () => {
         const { price, discount } = state
@@ -39,8 +55,14 @@ const CourseDetail = () => {
                             <p className='text-[0.95rem] text-[rgb(219,219,219)] my-2 '>{state?.description}</p>
 
                             {role === 'ADMIN' || data?.subscription?.status === 'ACTIVE' ? (
-                                <button className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-10 text-[1.1rem] font-semibold rounded-md'>Watch Lectures</button>
-
+                                <div className='flex flex-wrap gap-x-4'>
+                                    <button className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-6 text-[1.1rem] font-semibold rounded-md'>Watch Lectures</button>
+                                    {role === 'ADMIN' ?
+                                        <div className='flex flex-wrap gap-x-4'> <button className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-6 text-[1.1rem] font-semibold rounded-md'>Update Course</button>
+                                            <button onClick={removeCourse} className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-6 text-[1.1rem] font-semibold rounded-md'>Delete Course</button>
+                                        </div>
+                                        : ""}
+                                </div>
                             ) :
                                 (
                                     <div className='mt-5'>

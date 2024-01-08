@@ -41,6 +41,24 @@ export const createCourse = createAsyncThunk("/course/create", async (data) => {
     }
 })
 
+export const deleteCourse = createAsyncThunk("/course/remove", async (data) => {
+    try {
+        let res = axiosInstance.delete(`/course/remove/${data}`)
+        toast.promise(res, {
+            loading: 'Wait! removing course',
+            success: (data) => {
+                return data?.data.message
+            },
+            error: "failed to remove course"
+        })
+        // getting response resolved here
+        res = await res;
+        return res.data;
+    } catch (e) {
+        return toast.error(e?.response?.data?.message)
+    }
+})
+
 const courseSlice = createSlice({
     name: "courses",
     initialState,
