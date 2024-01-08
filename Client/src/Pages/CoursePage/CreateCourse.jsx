@@ -21,6 +21,7 @@ const CreateCourse = () => {
         price: "",
         discount: "",
         skills: "",
+        language: "",
         thumbnail: null,
         courseImage: ""
     })
@@ -54,9 +55,9 @@ const CreateCourse = () => {
     const addCourse = async (e) => {
         e.preventDefault()
 
-        const { title, description, category, createdBy, thumbnail, price, discount, skills } = input
+        const { title, description, category, createdBy, thumbnail, price, discount, skills, language } = input
 
-        if (!title || !description || !category || !createdBy || !thumbnail || !price || !discount || !skills) {
+        if (!title || !description || !category || !createdBy || !thumbnail || !price || !discount || !skills || !language) {
             return toast.error("Please fill all fields!")
         }
 
@@ -69,6 +70,7 @@ const CreateCourse = () => {
         formData.append('price', price)
         formData.append('discount', discount)
         formData.append('skills', skills)
+        formData.append('language', language)
 
         const response = await dispatch(createCourse(formData))
 
@@ -82,7 +84,8 @@ const CreateCourse = () => {
                 discount: "",
                 skills: "",
                 thumbnail: null,
-                courseImage: ""
+                courseImage: "",
+                language: ""
             })
             navigate('/LMS-Client/course')
 
@@ -130,7 +133,7 @@ const CreateCourse = () => {
                                 className='capitalize cursor-pointer text-[#a6b0bb] font-semibold text-[0.9rem]  tracking-wide'
                             >description</label>
                             <textarea
-                                className='w-full rounded-[3px] border h-[10rem] sm:h-[9rem] border-[#2d3a4b] p-2 focus:border-[#745FDC]  outline-none bg-transparent text-[0.95rem] tracking-wide resize-none'
+                                className='w-full rounded-[3px] border md:h-[13.2rem] h-[9rem] border-[#2d3a4b] p-2 focus:border-[#745FDC]  outline-none bg-transparent text-[0.95rem] tracking-wide resize-none'
                                 type="text" name='description' id='description' placeholder='Enter course description'
                                 onChange={handleCourseInput}
                                 value={input.description} />
@@ -196,6 +199,25 @@ const CreateCourse = () => {
                                         className='flex items-center justify-center text-white text-[0.95rem] gap-2'
                                         htmlFor="discount"><input type="radio" name="discount" id="discount" onChange={handleCourseInput} value='75' />
                                     75%</label>
+                            </div>
+                        </div>
+                        <div className='w-[17.5rem] sm:w-[23rem] md:w-[43vw] lg:w-[28rem] flex flex-col items-start gap-1'>
+                            <label htmlFor="language"
+                                className='capitalize cursor-pointer text-[#a6b0bb] font-semibold text-[0.9rem] tracking-wide'
+                            >language</label>
+                            <div className='flex items-center justify-between gap-8'>
+
+                                <label
+                                    className='flex items-center justify-center text-white text-[0.95rem] gap-2'
+                                    htmlFor="language"><input type="radio" name="language" id="language" onChange={handleCourseInput} value='Hindi' />
+                                    Hindi</label>
+                                <label
+                                    className='flex items-center justify-center text-white text-[0.95rem] gap-2'
+                                    htmlFor="language"><input type="radio" name="language" id="language" onChange={handleCourseInput} value='English' />
+                                    English</label><label
+                                        className='flex items-center justify-center text-white text-[0.95rem] gap-2'
+                                        htmlFor="language"><input type="radio" name="language" id="language" onChange={handleCourseInput} value='Hinglish' />
+                                    Hinglish</label>
                             </div>
                         </div>
                         <button type='submit' className='bg-[#FFB827] hover:bg-[#fbb66d] duration-300 mt-2 text-[#000] w-full rounded-md p-[5px] font-semibold text-[1.05rem]'>Create Course</button>

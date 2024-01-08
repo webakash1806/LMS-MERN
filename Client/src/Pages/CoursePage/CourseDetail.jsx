@@ -83,6 +83,10 @@ const CourseDetail = () => {
                             <p className='text-[0.85rem] font text-[#dbdbdb] tracking-wide'>Category</p>
                         </div>
                         <div className=' sm:text-center p-2'>
+                            <p className='text-[1.25rem] capitalize font-semibold tracking-wide'>{state?.language}</p>
+                            <p className='text-[0.85rem] font text-[#dbdbdb] tracking-wide'>Language</p>
+                        </div>
+                        <div className=' sm:text-center p-2'>
                             <p className='text-[1.25rem] capitalize font-semibold tracking-wide'>{state?.numberOfLecture}</p>
                             <p className='text-[0.85rem] font text-[#dbdbdb] tracking-wide'>Total Lectures</p>
                         </div>
