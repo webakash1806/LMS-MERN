@@ -5,9 +5,9 @@ import axiosInstance from '../../Helpers/axiosInstance.js'
 const initialState = {
     isLoggedIn: localStorage.getItem('isLoggedIn') || false,
     role: localStorage.getItem('role') || "",
-    data: localStorage.getItem('data') != undefined ? JSON.parse(localStorage.getItem('data')) : {}
+    data: localStorage.getItem('data') !== "undefined" ? JSON.parse(localStorage.getItem('data')) : {}
 }
-
+console.log(initialState.data)
 export const createAccount = createAsyncThunk('/user/register', async (data) => {
     try {
         let res = axiosInstance.post('user/register', data)
@@ -68,7 +68,6 @@ export const logout = createAsyncThunk('/user/logout', async () => {
 export const userProfile = createAsyncThunk('/user/details', async () => {
     try {
         const res = axiosInstance.get("/user/me")
-
         return (await res).data
     } catch (e) {
         toast.error(e?.message)
@@ -104,27 +103,27 @@ const authSlice = createSlice({
             state.isLoggedIn = true
             state.data = action?.payload?.user
             state.role = action?.payload?.user?.role
-        }).
-            addCase(createAccount.fulfilled, (state, action) => {
-                localStorage.setItem('data', JSON.stringify(action?.payload?.user))
-                localStorage.setItem('isLoggedIn', true)
-                localStorage.setItem('role', action?.payload?.user?.role)
-                state.isLoggedIn = true
-                state.data = action?.payload?.user
-                state.role = action?.payload?.user?.role
-            }).addCase(logout.fulfilled, (state) => {
-                localStorage.clear()
-                state.data = {}
-                state.isLoggedIn = false
-                state.role = ""
-            }).addCase(userProfile.fulfilled, (state, action) => {
-                localStorage.setItem('data', JSON.stringify(action?.payload?.user))
-                localStorage.setItem('isLoggedIn', true)
-                localStorage.setItem('role', action?.payload?.user?.role)
-                state.isLoggedIn = true
-                state.data = action?.payload?.user
-                state.role = action?.payload?.user?.role
-            })
+        }).addCase(createAccount.fulfilled, (state, action) => {
+            localStorage.setItem('data', JSON.stringify(action?.payload?.user))
+            localStorage.setItem('isLoggedIn', true)
+            localStorage.setItem('role', action?.payload?.user?.role)
+            state.isLoggedIn = true
+            state.data = action?.payload?.user
+            state.role = action?.payload?.user?.role
+        }).addCase(logout.fulfilled, (state) => {
+            localStorage.clear()
+            state.data = {}
+            state.isLoggedIn = false
+            state.role = ""
+        }).addCase(userProfile.fulfilled, (state, action) => {
+            console.log(action)
+            localStorage.setItem('data', JSON.stringify(action?.payload?.user))
+            localStorage.setItem('isLoggedIn', true)
+            localStorage.setItem('role', action?.payload?.user?.role)
+            state.isLoggedIn = true
+            state.data = action?.payload?.user
+            state.role = action?.payload?.user?.role
+        })
     }
 })
 

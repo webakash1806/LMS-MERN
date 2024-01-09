@@ -89,6 +89,8 @@ const verifySubscription = async (req, res, next) => {
         user.subscription.status = 'active'
         await user.save()
 
+        console.log(user)
+
         res.status(200).json({
             success: true,
             message: "Verified successfully",

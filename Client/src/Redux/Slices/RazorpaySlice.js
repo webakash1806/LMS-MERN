@@ -45,7 +45,7 @@ export const verifyPayment = createAsyncThunk('/razorpay/purchase-verify', async
 })
 
 
-export const allPayment = createAsyncThunk('/razorpay/all-payment', async (data) => {
+export const allPayment = createAsyncThunk('/razorpay/all-payment', async () => {
     try {
         const response = await axiosInstance.get('/payment?count=100')
         toast.promise(response, {

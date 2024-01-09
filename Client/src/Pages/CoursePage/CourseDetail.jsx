@@ -19,6 +19,8 @@ const CourseDetail = () => {
 
     const { role, data } = useSelector((state) => state?.auth)
 
+    console.log(data)
+
     const courseId = state?._id
     console.log(courseId)
 
@@ -54,7 +56,7 @@ const CourseDetail = () => {
                             <h2 className='text-[1.8rem] capitalize font-[600] tracking-wide '>{state?.title}</h2>
                             <p className='text-[0.95rem] text-[rgb(219,219,219)] my-2 '>{state?.description}</p>
 
-                            {role === 'ADMIN' || data?.subscription?.status === 'ACTIVE' ? (
+                            {role === 'ADMIN' || data?.subscription?.status === 'active' ? (
                                 <div className='flex flex-wrap gap-x-4'>
                                     <button className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-6 text-[1.1rem] font-semibold rounded-md'>Watch Lectures</button>
                                     {role === 'ADMIN' ?
