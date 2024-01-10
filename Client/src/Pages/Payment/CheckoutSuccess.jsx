@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BsHouseFill } from 'react-icons/bs'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import successPng from '../../assets/successPng.png'
 import HomeLayout from '../../Layouts/HomeLayout'
+import { userProfile } from '../../Redux/Slices/AuthSlice'
 
 const CheckoutSuccess = () => {
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(userProfile())
+    }, [])
     return (
         <HomeLayout>
             <div className='flex items-center justify-center h-[90vh] '>

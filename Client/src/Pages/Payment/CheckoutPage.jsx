@@ -20,7 +20,7 @@ const CheckoutPage = () => {
         razorpay_subscription_id: "",
         razorpay_signature: ""
     }
-    console.log(isPaymentVerified)
+
     const handleSubscription = async (e) => {
         e.preventDefault()
         console.log(razorpayKey)
@@ -82,9 +82,7 @@ const CheckoutPage = () => {
                             <p>*Terms and Condition applied</p>
                         </div>
                         <button type='submit' className='bg-[#FF6700] hover:bg-[#ff4d00] p-2 text-[1.1rem] capitalize rounded-md w-full font-semibold tracking-wide'>subscribe</button>
-
                     </div>
-
                 </form>
             </div>
         </HomeLayout>

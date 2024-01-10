@@ -123,6 +123,9 @@ const cancelSubscription = async (req, res, next) => {
             subscriptionId
         })
 
+        if (!subscription) {
+            console.log("hello")
+        }
         user.subscription.status = subscription.status
 
         await user.save()
@@ -132,8 +135,8 @@ const cancelSubscription = async (req, res, next) => {
             message: "Subscription cancelled!"
         })
 
-    } catch (e) {
-        return next(new AppError(e.message, 500))
+    } catch (error) {
+        return next(new AppError(error.error.description, error.statusCode))
     }
 }
 

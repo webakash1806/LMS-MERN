@@ -1,17 +1,31 @@
 import React from 'react'
+import toast from 'react-hot-toast'
 import { BsPersonCircle, BsPersonFill } from 'react-icons/bs'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
 
 import HomeLayout from '../Layouts/HomeLayout'
+import { userProfile } from '../Redux/Slices/AuthSlice'
+import { unsubscribe } from '../Redux/Slices/RazorpaySlice'
 
 const Profile = () => {
 
-
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const userData = useSelector((state) => state?.auth?.data)
 
     const { avatar, email, fullName, role, userName } = userData
 
+    async function handleCancellation() {
+        toast("Initiating cancellation")
+        const res = await dispatch(unsubscribe())
+        await dispatch(userProfile())
+        if (res?.payload?.success) {
+
+            toast.success("Cancellation completed")
+            navigate('/LMS-Client')
+        }
+    }
 
     return (
         <HomeLayout>
@@ -86,11 +100,9 @@ const Profile = () => {
                         <Link to={'/LMS-Client/profile/edit'} className='bg-[#FFB827] hover:bg-[#fbb66d] text-center duration-300 mt-2 text-[#000] w-full rounded-md p-[5px] font-semibold text-[1.05rem]'>Edit Profile</Link>
                         <Link to={'/LMS-Client/changePassword'} className='bg-[#FFB827] hover:bg-[#fbb66d] text-center duration-300 mt-2 text-[#000] w-full rounded-md p-[5px] font-semibold text-[1.05rem]'>Change Password</Link>
                         {userData?.subscription?.status === 'active' ?
-                            <Link to={'/LMS-Client/unsubscribe'} className='bg-[#FFB827] hover:bg-[#fbb66d] text-center duration-300 mt-2 text-[#000] w-full rounded-md p-[5px] font-semibold text-[1.05rem]'>Unsubscribe</Link> : ""}
-
+                            <button onClick={handleCancellation} className='bg-[#FFB827] hover:bg-[#fbb66d] text-center duration-300 mt-2 text-[#000] w-full rounded-md p-[5px] font-semibold text-[1.05rem]'>Unsubscribe</button> : ""}
                     </div>
                 </form>
-
             </div>
         </HomeLayout>
     )

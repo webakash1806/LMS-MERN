@@ -62,9 +62,10 @@ export const allPayment = createAsyncThunk('/razorpay/all-payment', async () => 
 })
 
 
-export const unsubscribe = createAsyncThunk('/razorpay/unsubscribe', async (data) => {
+export const unsubscribe = createAsyncThunk('/razorpay/unsubscribe', async () => {
     try {
         const response = await axiosInstance.post('/payment/unsubscribe')
+        console.log(response)
         toast.promise(response, {
             loading: "Unsubscribing in process",
             success: (data) => {
