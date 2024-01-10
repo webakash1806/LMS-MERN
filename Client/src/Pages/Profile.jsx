@@ -18,13 +18,11 @@ const Profile = () => {
 
     async function handleCancellation() {
         toast("Initiating cancellation")
-        const res = await dispatch(unsubscribe())
+        await dispatch(unsubscribe())
         await dispatch(userProfile())
-        if (res?.payload?.success) {
 
-            toast.success("Cancellation completed")
-            navigate('/LMS-Client')
-        }
+        toast.success("Cancellation completed")
+        navigate('/LMS-Client')
     }
 
     return (
@@ -100,7 +98,7 @@ const Profile = () => {
                         <Link to={'/LMS-Client/profile/edit'} className='bg-[#FFB827] hover:bg-[#fbb66d] text-center duration-300 mt-2 text-[#000] w-full rounded-md p-[5px] font-semibold text-[1.05rem]'>Edit Profile</Link>
                         <Link to={'/LMS-Client/changePassword'} className='bg-[#FFB827] hover:bg-[#fbb66d] text-center duration-300 mt-2 text-[#000] w-full rounded-md p-[5px] font-semibold text-[1.05rem]'>Change Password</Link>
                         {userData?.subscription?.status === 'active' ?
-                            <button onClick={handleCancellation} className='bg-[#FFB827] hover:bg-[#fbb66d] text-center duration-300 mt-2 text-[#000] w-full rounded-md p-[5px] font-semibold text-[1.05rem]'>Unsubscribe</button> : ""}
+                            <Link onClick={handleCancellation} className='bg-[#FFB827] hover:bg-[#fbb66d] text-center duration-300 mt-2 text-[#000] w-full rounded-md p-[5px] font-semibold text-[1.05rem]'>Unsubscribe</Link> : ""}
                     </div>
                 </form>
             </div>
