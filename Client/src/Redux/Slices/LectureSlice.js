@@ -9,7 +9,8 @@ const initialState = {
 
 export const getCourseLectures = createAsyncThunk("/course/lectures", async (courseId) => {
     try {
-        const response = await axiosInstance.get(`/course/${courseId}`)
+        console.log(courseId)
+        const response = axiosInstance.get(`/course/${courseId}`)
         toast.promise(response, {
             loading: "Loading lectures",
             success: "Lectures loaded successfully",
@@ -25,7 +26,7 @@ export const getCourseLectures = createAsyncThunk("/course/lectures", async (cou
 
 export const addCourseLectures = createAsyncThunk("/course/create/lectures", async (data) => {
     try {
-        const response = await axiosInstance.post(`/course/create/lectures/${data[0]}`, data[1])
+        const response = axiosInstance.post(`/course/create/lectures/${data[0]}`, data[1])
         toast.promise(response, {
             loading: "Adding lecture",
             success: "Lectures added successfully",
@@ -41,7 +42,7 @@ export const addCourseLectures = createAsyncThunk("/course/create/lectures", asy
 
 export const deleteCourseLecture = createAsyncThunk("/course/remove/lectures", async (data) => {
     try {
-        const response = await axiosInstance.delete(`/course/remove/lectures/${data[0]}`, data[1])
+        const response = axiosInstance.delete(`/course/remove/lectures/${data[0]}`, data[1])
         toast.promise(response, {
             loading: "Removing lecture",
             success: "Lectures removed successfully",
@@ -59,7 +60,15 @@ const lectureSlice = createSlice({
     name: "lecture",
     initialState,
     reducers: {},
-    extraReducers: () => { }
+    extraReducers: (builder) => {
+        builder
+            .addCase(getCourseLectures.fulfilled, (state, action) => {
+                state.lectures = action?.payload?.lectures
+            })
+            .addCase(addCourseLectures.fulfilled, (state, action) => {
+                state.lectures = action?.payload?.course?.lectures
+            })
+    }
 })
 
 export default lectureSlice.reducer

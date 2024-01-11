@@ -58,7 +58,7 @@ const CourseDetail = () => {
 
                             {role === 'ADMIN' || data?.subscription?.status === 'active' ? (
                                 <div className='flex flex-wrap gap-x-4'>
-                                    <button className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-6 text-[1.1rem] font-semibold rounded-md'>Watch Lectures</button>
+                                    <button onClick={() => navigate('/LMS-Client/course/lectures', { state: { ...state } })} className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-6 text-[1.1rem] font-semibold rounded-md'>Watch Lectures</button>
                                     {role === 'ADMIN' ?
                                         <div className='flex flex-wrap gap-x-4'> <button className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-6 text-[1.1rem] font-semibold rounded-md'>Update Course</button>
                                             <button onClick={removeCourse} className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-6 text-[1.1rem] font-semibold rounded-md'>Delete Course</button>

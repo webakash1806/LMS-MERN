@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import toast from 'react-hot-toast'
 import { BsPersonCircle, BsPersonFill } from 'react-icons/bs'
 import { useDispatch, useSelector } from 'react-redux'
@@ -24,6 +24,10 @@ const Profile = () => {
         toast.success("Cancellation completed")
         navigate('/LMS-Client')
     }
+
+    useEffect(() => {
+        userData
+    }, [])
 
     return (
         <HomeLayout>

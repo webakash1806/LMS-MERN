@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import RequireAuth from './Components/Auth/RequireAuth'
 import AboutUs from './Pages/AboutUs'
 import AccessDeniedPage from './Pages/AccessDeniedPage'
+import Lectures from './Pages/CourseLectures/Lectures'
 import CourseDetail from './Pages/CoursePage/CourseDetail'
 import CourseList from './Pages/CoursePage/CourseList'
 import CreateCourse from './Pages/CoursePage/CreateCourse'
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="/LMS-Client/checkout" element={<CheckoutPage />} />
           <Route path="/LMS-Client/checkout/success" element={<CheckoutSuccess />} />
           <Route path="/LMS-Client/checkout/fail" element={<CheckoutFail />} />
+          <Route path="/LMS-Client/course/lectures" element={<Lectures />} />
         </Route>
       </Routes>
     </>
