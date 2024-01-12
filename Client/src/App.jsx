@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import RequireAuth from './Components/Auth/RequireAuth'
 import AboutUs from './Pages/AboutUs'
 import AccessDeniedPage from './Pages/AccessDeniedPage'
+import AddLecture from './Pages/CourseLectures/AddLecture'
 import Lectures from './Pages/CourseLectures/Lectures'
 import CourseDetail from './Pages/CoursePage/CourseDetail'
 import CourseList from './Pages/CoursePage/CourseList'
@@ -33,6 +34,7 @@ const App = () => {
 
         <Route element={<RequireAuth allowedRoles={['ADMIN']} />}>
           <Route path="/LMS-Client/course/create" element={<CreateCourse />} />
+          <Route path="/LMS-Client/course/lecture/add" element={<AddLecture />} />
         </Route>
 
         <Route element={<RequireAuth allowedRoles={['ADMIN', 'USER']} />}>
