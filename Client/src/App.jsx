@@ -6,9 +6,11 @@ import AboutUs from './Pages/AboutUs'
 import AccessDeniedPage from './Pages/AccessDeniedPage'
 import AddLecture from './Pages/CourseLectures/AddLecture'
 import Lectures from './Pages/CourseLectures/Lectures'
+import UpdateLecture from './Pages/CourseLectures/UpdateLecture'
 import CourseDetail from './Pages/CoursePage/CourseDetail'
 import CourseList from './Pages/CoursePage/CourseList'
 import CreateCourse from './Pages/CoursePage/CreateCourse'
+import UpdateCourse from './Pages/CoursePage/UpdateCourse'
 import EditProfile from './Pages/EditProfile'
 import HomePage from './Pages/HomePage'
 import LoginPage from './Pages/LoginPage'
@@ -35,6 +37,8 @@ const App = () => {
         <Route element={<RequireAuth allowedRoles={['ADMIN']} />}>
           <Route path="/LMS-Client/course/create" element={<CreateCourse />} />
           <Route path="/LMS-Client/course/lecture/add" element={<AddLecture />} />
+          <Route path="/LMS-Client/course/update" element={<UpdateCourse />} />
+          <Route path="/LMS-Client/course/lecture/update" element={<UpdateLecture />} />
         </Route>
 
         <Route element={<RequireAuth allowedRoles={['ADMIN', 'USER']} />}>

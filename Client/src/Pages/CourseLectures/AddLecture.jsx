@@ -65,7 +65,7 @@ const AddLecture = () => {
         formData.append('title', title)
         formData.append('description', description)
         formData.append('lecture', lecture)
-
+        console.log(formData)
         const data = [courseId, formData]
         const response = await dispatch(addCourseLectures(data))
 
@@ -76,7 +76,7 @@ const AddLecture = () => {
                 lecture: null,
                 lectureVideo: ""
             })
-            navigate('/LMS-Client/course')
+            navigate(-1)
 
         }
 
@@ -89,7 +89,7 @@ const AddLecture = () => {
                 <form onSubmit={addLecture}
                     className='text-white bg-[#1A202A] p-4 rounded-lg relative rounded-tl-none mt-8 sm:p-12 sm:pt-6 md:p-10 md:px-5 items-center justify-center md:justify-between md:items-start flex flex-col md:flex-row gap-5 lg:gap-10 md:grid-cols-2 lg:px-8 '
                 >
-                    <div className='flex flex-col gap-6'>
+                    <div className='flex flex-col gap-4'>
                         <div className='flex items-center bg-[#1A202A] justify-between w-fit p-2 gap-6 pr-5 rounded-lg left-0 rounded-b-none absolute top-[-2.7rem] text-[1.1rem]'>
                             <Link onClick={() => navigate(-1)}
                                 className=' p-1 rounded-tl-lg rounded-sm  bg-[#653aab]'>
@@ -97,7 +97,7 @@ const AddLecture = () => {
                             </Link>
                             <h1 className='tracking-wide'>Create <span className='text-[#BEC1FC] font-[500]'>Lecture</span></h1>
                         </div>
-                        <div>
+                        <div className='w-[17.5rem] sm:w-[23rem] md:w-[43vw] lg:w-[28rem]'>
                             <label htmlFor="lecture" className='capitalize cursor-pointer text-[#828D9A] font-semibold text-[0.9rem]  tracking-wide'>
                                 <p className='mb-1'>Upload lecture video</p>
                                 {
@@ -105,7 +105,8 @@ const AddLecture = () => {
                                         <img src={uploadImg} alt="" className='border w-[17.5rem] sm:w-[23rem] sm:h-[12rem] md:w-[43vw] lg:w-[28rem] h-[9rem] rounded object-cover' />
                                 }
                             </label>
-                            <input onChange={getLectureVideo} type="file" id='lecture' name='lecture' className='hidden' accept='.mp4' />
+                            <input onChange={getLectureVideo} type="file" id='lecture' name='lecture' className='cursor-pointer border border-[#2d3a4b] p-2 focus:border-[#745FDC] w-full  outline-none' accept='.mp4' />
+
                         </div>
                         <div className='w-[17.5rem] sm:w-[23rem] md:w-[43vw] lg:w-[28rem] flex flex-col items-start gap-1'>
                             <label htmlFor="title"
@@ -119,13 +120,13 @@ const AddLecture = () => {
                         </div>
 
                     </div>
-                    <div className='flex flex-col gap-6'>
+                    <div className='flex flex-col gap-8'>
                         <div className='w-[17.5rem] sm:w-[23rem] md:w-[43vw] lg:w-[28rem] flex flex-col items-start gap-1'>
                             <label htmlFor="description"
                                 className='capitalize cursor-pointer text-[#a6b0bb] font-semibold text-[0.9rem]  tracking-wide'
                             >description</label>
                             <textarea
-                                className='w-full rounded-[3px] border md:h-[13.2rem] h-[9rem] border-[#2d3a4b] p-2 focus:border-[#745FDC]  outline-none bg-transparent text-[0.95rem] tracking-wide resize-none'
+                                className='w-full rounded-[3px] border md:h-[15.2rem] h-[9rem] border-[#2d3a4b] p-2 focus:border-[#745FDC]  outline-none bg-transparent text-[0.95rem] tracking-wide resize-none'
                                 type="text" name='description' id='description' placeholder='Enter lecture description'
                                 onChange={handleLectureInput}
                                 value={input.description} />

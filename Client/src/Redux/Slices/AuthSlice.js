@@ -7,7 +7,7 @@ const initialState = {
     role: localStorage.getItem('role') || "",
     data: localStorage.getItem('data') !== "undefined" ? JSON.parse(localStorage.getItem('data')) : {}
 }
-console.log(initialState.data)
+
 export const createAccount = createAsyncThunk('/user/register', async (data) => {
     try {
         let res = axiosInstance.post('user/register', data)

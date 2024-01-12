@@ -17,14 +17,16 @@ const Lectures = () => {
     const { lectures } = useSelector((state) => state?.lecture)
     const { role } = useSelector((state) => state?.auth)
 
-    console.log(lectures)
-
 
     const [currentLecture, setCurrentLecture] = useState(0)
     const getLecturesList = async () => {
-        const response = await dispatch(getCourseLectures(courseId))
-        console.log(response)
+        await dispatch(getCourseLectures(courseId))
     }
+
+    console.log(currentLecture)
+
+    const currentLectureData = { courseId: courseId, lecture: lectures[currentLecture] }
+    console.log({ ...currentLectureData })
 
     const removeLecture = async (data) => {
         await dispatch(deleteCourseLecture(data))
@@ -46,10 +48,9 @@ const Lectures = () => {
                         {lectures && (lectures.length > 0) ?
                             <div className=' flex w-full overflow-hidden flex-col md:flex-row md:gap-0 gap-4 items-center justify-center md:items-start'>
                                 <div className='md:h-[90vh] scrollbar  scrollbar-thumb-gray-900 scrollbar-track-gray-600 scrollbar-thin overflow-x-hidden md:overflow-y-scroll flex md:items-start md:justify-start items-center justify-center flex-col'>
-                                    <div className='flex items-center  justify-start p-3 px-12 w-full gap-4 bg-[#0d0f12] shadow-[2px_2px_9px_#808080,-2px_-2px_1px_#3a3b3a] border border-[#4d64aeb7]'>
-                                        <BsArrowLeftCircle onClick={() => navigate(-1)} className='text-[1.5rem] cursor-pointer' />
-                                        <span className='text-[1rem] font-normal'>Now Playing</span>
-                                        <p className='text-[1.45rem] capitalize font-semibold ml-4'> {lectures && lectures[currentLecture]?.title}</p>
+                                    <div className='flex items-center justify-start p-3 md:px-12 md:w-[62vw] lg:w-[67vw] w-[97vw] gap-4 bg-[#0d0f12] shadow-[2px_2px_9px_#808080,-2px_-2px_1px_#3a3b3a] border border-[#4d64aeb7]'>
+                                        <BsArrowLeftCircle onClick={() => navigate(-1)} className='text-[1.7rem] md:text-[2.5rem] cursor-pointer' />
+                                        <p className='text-[1.45rem] line-clamp-1 w-[80vw] capitalize font-semibold ml-4'> {lectures && lectures[currentLecture]?.title}</p>
                                     </div>
                                     <div><video
                                         className='md:w-[62vw] lg:w-[67vw] w-[97vw] cursor-pointer'
@@ -57,8 +58,8 @@ const Lectures = () => {
                                         controlsList='nodownload'
                                         src={lectures && lectures[currentLecture]?.lecture?.secure_url}></video></div>
                                     <div className=' w-full h-fit md:w-[50vw] p-3 sm:px-6'>
-                                        <p className='text-[1.7rem] font-semibold mb-3'>{state.title} - Batch</p>
-                                        <p className='text-[0.95rem] tracking-wide w-[94vw] overflow-x-hidden text-slate-300'>{lectures && lectures[currentLecture]?.description}</p>
+                                        <p className='lg:text-[1.7rem] text-[1.2rem] font-semibold mb-3'>{state.title} - Batch</p>
+                                        <p className='text-[0.95rem] tracking-wide md:w-[55vw] lg:w-[60vw] w-[90vw]  overflow-x-hidden text-slate-300'>{lectures && lectures[currentLecture]?.description}</p>
                                     </div>
                                 </div>
                                 <div className=' flex scroll-smooth flex-col md:h-[90vh] rounded-sm md:overflow-y-scroll overflow-x-hidden w-full md:w-[38vw] lg:w-[33vw]  scrollbar  scrollbar-thumb-gray-900 scrollbar-track-gray-600 scrollbar-thin '>
@@ -73,7 +74,11 @@ const Lectures = () => {
                                                 <p className='w-[90vw] md:w-[33vw] lg:w-[30vw] line-clamp-1 text-[0.95rem] tracking-wide'>{data.description}</p>
                                                 {role === 'ADMIN' ?
                                                     (<div className='flex items-center justify-center gap-3 font-semibold '>
-                                                        <button className='duration-300 rounded-[4px] p-1 px-3 bg-[#fc4e09] hover:bg-[#f44500]' onClick={() => navigate('/LMS-Client/course/lecture/update', { state: { ...state } })}>Update</button>
+                                                        <button className='duration-300 rounded-[4px] p-1 px-3 bg-[#fc4e09] hover:bg-[#f44500]'
+                                                            onClick={() => {
+                                                                navigate('/LMS-Client/course/lecture/update', { state: { ...currentLectureData } })
+                                                                setCurrentLecture(index)
+                                                            }}>Update</button>
                                                         <button className='duration-300 rounded-[4px] p-1 px-3 bg-[#e70000] hover:bg-[#e70000dd]' onClick={() => {
                                                             removeLecture([courseId, data._id])
                                                         }}>Delete</button>

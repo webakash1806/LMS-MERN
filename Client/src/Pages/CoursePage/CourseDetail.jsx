@@ -19,10 +19,7 @@ const CourseDetail = () => {
 
     const { role, data } = useSelector((state) => state?.auth)
 
-    console.log(data)
-
     const courseId = state?._id
-    console.log(courseId)
 
     const removeCourse = async (e) => {
         e.preventDefault()
