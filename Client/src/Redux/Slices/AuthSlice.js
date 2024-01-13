@@ -91,6 +91,57 @@ export const editProfile = createAsyncThunk('user/update-profile', async (data) 
     }
 })
 
+export const changePassword = createAsyncThunk('user/update-password', async (data) => {
+    try {
+        let res = axiosInstance.post(`user/change-password`, data)
+        toast.promise(res, {
+            loading: "Changing Password!",
+            success: (data) => {
+                return data?.data.message
+            },
+            error: "Failed to change password!"
+        })
+        res = await res;
+        return res.data;
+    } catch (e) {
+        return toast.error(e?.response?.data?.message)
+    }
+})
+
+export const forgotPassword = createAsyncThunk('user/forgot-password', async (data) => {
+    try {
+        let res = axiosInstance.post(`user/forgot-password`, data)
+        toast.promise(res, {
+            loading: "Sending password reset link to registered mail!",
+            success: (data) => {
+                return data?.data.message
+            },
+            error: "Failed to send reset link"
+        })
+        res = await res;
+        return res.data;
+    } catch (e) {
+        return toast.error(e?.response?.data?.message)
+    }
+})
+
+export const resetPasswords = createAsyncThunk('user/reset-password', async (data) => {
+    try {
+        let res = axiosInstance.post(`user/reset-password/${data[0]}`, data[1])
+        toast.promise(res, {
+            loading: "Reseting Password!",
+            success: (data) => {
+                return data?.data.message
+            },
+            error: "Failed to reset password"
+        })
+        res = await res;
+        return res.data;
+    } catch (e) {
+        return toast.error(e?.response?.data?.message)
+    }
+})
+
 const authSlice = createSlice({
     name: 'auth',
     initialState,
