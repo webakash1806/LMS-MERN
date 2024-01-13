@@ -23,7 +23,7 @@ const EditProfile = () => {
 
     function imgUpload(e) {
         e.preventDefault()
-        const uploadedImg = event.target.files[0]
+        const uploadedImg = e.target.files[0]
 
         if (uploadedImg) {
             setData({
