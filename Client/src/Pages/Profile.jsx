@@ -101,7 +101,7 @@ const Profile = () => {
                         </div>
                         <Link to={'/LMS-Client/profile/edit'} className='bg-[#FFB827] hover:bg-[#fbb66d] text-center duration-300 mt-2 text-[#000] w-full rounded-md p-[5px] font-semibold text-[1.05rem]'>Edit Profile</Link>
                         <button onClick={() => navigate('/LMS-Client/changePassword', { state: { ...userData } })} className='bg-[#FFB827] hover:bg-[#fbb66d] text-center duration-300 mt-2 text-[#000] w-full rounded-md p-[5px] font-semibold text-[1.05rem]'>Change Password</button>
-                        {userData?.subscription?.status === 'active' ?
+                        {userData?.subscription?.status === 'active' && role === 'USER' ?
                             <Link onClick={handleCancellation} className='bg-[#FFB827] hover:bg-[#fbb66d] text-center duration-300 mt-2 text-[#000] w-full rounded-md p-[5px] font-semibold text-[1.05rem]'>Unsubscribe</Link> : ""}
                     </div>
                 </form>

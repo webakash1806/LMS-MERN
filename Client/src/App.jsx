@@ -12,6 +12,7 @@ import CourseDetail from './Pages/CoursePage/CourseDetail'
 import CourseList from './Pages/CoursePage/CourseList'
 import CreateCourse from './Pages/CoursePage/CreateCourse'
 import UpdateCourse from './Pages/CoursePage/UpdateCourse'
+import AdminDashboard from './Pages/Dashboard/AdminDashboard'
 import EditProfile from './Pages/EditProfile'
 import ForgotPassword from './Pages/ForgotPassword'
 import HomePage from './Pages/HomePage'
@@ -44,6 +45,7 @@ const App = () => {
           <Route path="/LMS-Client/course/lecture/add" element={<AddLecture />} />
           <Route path="/LMS-Client/course/update" element={<UpdateCourse />} />
           <Route path="/LMS-Client/course/lecture/update" element={<UpdateLecture />} />
+          <Route path="/LMS-Client/admin/dashboard" element={<AdminDashboard />} />
         </Route>
 
         <Route element={<RequireAuth allowedRoles={['ADMIN', 'USER']} />}>
