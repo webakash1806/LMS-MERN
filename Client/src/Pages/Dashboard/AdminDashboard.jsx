@@ -37,9 +37,13 @@ const AdminDashboard = () => {
             {
                 label: 'User Details',
                 data: [allUsersCount, subscribedCount],
-                backgroundColor: ['yellow', 'green'],
-                borderwidth: 1,
-                bordercolor: 'white'
+                backgroundColor: ['#26a5f9', '#fb1dce'],
+                borderWidth: 0,
+                circumference: 330,
+                cutout: 80,
+                hoverOffset: 10,
+                radius: 70,
+                color: 'white'
             }
         ]
     }
@@ -53,9 +57,9 @@ const AdminDashboard = () => {
             {
                 label: 'Sales / Month',
                 data: monthlySalesRecord,
-                backgroundColor: ['rgb(255,99,132)'],
-                bordercolor: ['white'],
-                borderwidth: 2
+                backgroundColor: ['#1292F6'],
+                barThickness: 10,
+                borderRadius: 10
             }
         ]
     }
@@ -78,47 +82,48 @@ const AdminDashboard = () => {
     }, [])
     return (
         <HomeLayout>
-            <div className='text-white min-h-[90vh] gap-5 w-full overflow-x-hidden flex flex-col items-center justify-center'>
+            <div className='bg-[#0E1122] text-white min-h-[90vh] gap-5 w-full overflow-x-hidden flex flex-col items-center justify-center'>
                 <h1>Admin Dashboard</h1>
-                <div className='flex items-center flex-wrap gap-20 flex-col lg:gap-40 lg:flex-row justify-around h-full'>
+                <div className='flex items-center flex-wrap gap-20 flex-col lg:gap-0 lg:flex-row justify-around h-full'>
                     <div className='flex items-center justify-center flex-col gap-4'>
-                        <div>
-                            <Doughnut data={userStats} />
+                        <div className='bg-[#182037] p-4 w-[19rem] sm:w-[29rem] lg:w-[20rem] h-[19rem]  pb-0 rounded-lg text-white flex items-center justify-center flex-col'>
+                            <p className='text-center text-[0.85rem] font-semibold tracking-wide'>User Data</p>
+                            <Doughnut data={userStats} className='' />
                         </div>
-                        <div className='grid grid-cols-2 gap-8'>
-                            <div className='flex flex-col  items-center justify-center'>
-                                <FaUsers className='text-[2.7rem]' />
+                        <div className='grid grid-cols-1 sm:grid-cols-2 gap-5 lg:grid-cols-1'>
+                            <div className='bg-[#182037] p-4 px-12 lg:px-14 rounded-lg flex  gap-10  items-center justify-center'>
+                                <FaUsers className='text-[3rem] text-[#26a5f9]' />
                                 <div className='text-center'>
                                     <p>Registered Users</p>
-                                    <p>{allUsersCount}</p>
+                                    <p className='text-[1.7rem] font-semibold'>{allUsersCount}</p>
                                 </div>
                             </div>
-                            <div className='flex flex-col items-center justify-center'>
-                                <FaUsers className='text-[2.7rem]' />
+                            <div className='bg-[#182037] p-4 px-12 lg:px-14 rounded-lg  flex gap-10  items-center justify-center'>
+                                <FaUsers className='text-[3rem] text-[#fb1dce]' />
                                 <div className='text-center'>
                                     <p>Subscribed Users</p>
-                                    <p>{subscribedCount}</p>
+                                    <p className='text-[1.7rem] font-semibold'>{subscribedCount}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className=''>
+                    <div className='flex flex-col items-center justify-center'>
                         <div className='h-[20rem] w-[100vw] sm:w-[80vw] md:w-[35rem]'>
                             <Bar data={salesData} />
                         </div>
-                        <div className='grid grid-cols-2 gap-8'>
-                            <div className='flex flex-col  items-center justify-center'>
-                                <FcSalesPerformance className='text-[2.7rem]' />
+                        <div className='grid grid-cols-1 sm:grid-cols-2 gap-5'>
+                            <div className='bg-[#182037] p-4 px-12   rounded-lg flex  gap-10  items-center justify-center'>
+                                <FaUsers className='text-[3rem] text-[#26a5f9]' />
                                 <div className='text-center'>
                                     <p>Total Subscription</p>
-                                    <p>{allPayments?.count}</p>
+                                    <p className='text-[1.7rem] font-semibold'>{allPayments?.count}</p>
                                 </div>
                             </div>
-                            <div className='flex flex-col items-center justify-center'>
-                                <GiMoneyStack className='text-[2.7rem]' />
+                            <div className='bg-[#182037] p-4 px-12  rounded-lg  flex gap-10  items-center justify-center'>
+                                <FaUsers className='text-[3rem] text-[#fb1dce]' />
                                 <div className='text-center'>
                                     <p>Total Revenue</p>
-                                    <p>{allPayments?.count * 499}</p>
+                                    <p className='text-[1.7rem] font-semibold'>{allPayments?.count * 499}</p>
                                 </div>
                             </div>
                         </div>
