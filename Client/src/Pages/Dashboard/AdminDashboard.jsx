@@ -7,7 +7,7 @@ import { FcSalesPerformance } from 'react-icons/fc'
 import { GiMoneyStack } from 'react-icons/gi'
 import { MdAddBox, MdDelete } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import HomeLayout from '../../Layouts/HomeLayout'
 import { deleteCourse, getAllCourses } from '../../Redux/Slices/CourseSlice'
@@ -65,6 +65,8 @@ const AdminDashboard = () => {
     }
 
     const { courseData } = useSelector((state) => state?.course)
+
+    console.log(courseData)
 
     async function onCourseDelete(id) {
         if (window.confirm('Are you sure to delete this course?')) {
@@ -142,7 +144,7 @@ const AdminDashboard = () => {
                                     <th>Title</th>
                                     <th>Category</th>
                                     <th>Instructor</th>
-                                    <th>Total Lectures</th>
+                                    <th className='text-center'>Total Lectures</th>
                                     <th className='text-center'>Actions</th>
                                 </tr>
                             </thead>
@@ -156,13 +158,13 @@ const AdminDashboard = () => {
                                             <td>{course?.createdBy}</td>
                                             <td className='text-center '>{course?.numberOfLecture}</td>
                                             <td className='flex items-center justify-center gap-4 lg:gap-6'>
-                                                <div onClick={onCourseDelete(course?.id)} className=' w-fit bg-[#182037] p-2 rounded-md cursor-pointer text-[1.7rem] text-[#C426F9]'>
+                                                <div onClick={() => onCourseDelete(course?._id)} className=' w-fit bg-[#182037] p-2 rounded-md cursor-pointer text-[1.7rem] text-[#C426F9]'>
                                                     <MdDelete />
                                                 </div>
-                                                <div className=' w-fit bg-[#182037] p-2 rounded-md cursor-pointer text-[1.5rem] text-[#50da26]'>
+                                                <div onClick={() => navigate('/LMS-Client/course/update', { state: { ...course } })} className=' w-fit bg-[#182037] p-2 rounded-md cursor-pointer text-[1.5rem] text-[#50da26]'>
                                                     <FaEdit />
                                                 </div>
-                                                <div className=' w-fit bg-[#182037] p-2 rounded-md cursor-pointer text-[1.5rem] text-[#26c8f9]'>
+                                                <div onClick={() => navigate('/LMS-Client/course/lecture/add', { state: { ...course } })} className=' w-fit bg-[#182037] p-2 rounded-md cursor-pointer text-[1.5rem] text-[#26c8f9]'>
                                                     <MdAddBox />
                                                 </div>
                                             </td>

@@ -30,6 +30,7 @@ const UpdateCourse = () => {
         courseImage: courseData?.thumbnail?.secure_url
     })
 
+
     function getCourseImage(e) {
         e.preventDefault()
 
@@ -84,7 +85,6 @@ const UpdateCourse = () => {
             navigate('/LMS-Client/course')
 
         }
-
 
     }
 
