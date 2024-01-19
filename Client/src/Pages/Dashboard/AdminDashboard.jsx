@@ -129,7 +129,7 @@ const AdminDashboard = () => {
                         </div>
                     </div>
 
-                    <div className='overflow-x-scroll w-[90vw]'>
+                    <div className='overflow-x-scroll w-[90vw] scrollbar mb-4 scrollbar-thumb-gray-900 scrollbar-track-gray-600 scrollbar-thin'>
                         <div className='flex flex-wrap border-b border-b-slate-600 items-center justify-around w-full bg-[#182037] rounded-t-lg p-4'>
                             <h2 className=' text-[1.6rem] font-semibold tracking-wide'>Courses Overview</h2>
                             <button className='bg-[#c426f9] hover:bg-[#f516fd] font-semibold p-2 px-4 rounded-md text-white tracking-wide text-[1.1rem]' onClick={() => navigate('/LMS-Client/course/create')}>

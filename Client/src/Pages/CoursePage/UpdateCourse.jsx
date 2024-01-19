@@ -36,9 +36,12 @@ const UpdateCourse = () => {
 
         const uploadedImage = e.target.files[0]
 
+        console.log(uploadedImage)
+
         if (uploadedImage) {
             const fileReader = new FileReader()
-            fileReader.readAsDataURL(uploadedImage)
+            const res = fileReader.readAsDataURL(uploadedImage)
+            console.log(res)
             fileReader.addEventListener('load', function () {
                 setInput({
                     ...input,
@@ -102,15 +105,20 @@ const UpdateCourse = () => {
                             </Link>
                             <h1 className='tracking-wide'>Update <span className='text-[#BEC1FC] font-[500]'>Course</span></h1>
                         </div>
-                        <div>
-                            <label htmlFor="image_uploads" className='capitalize cursor-pointer text-[#828D9A] font-semibold text-[0.9rem]  tracking-wide'>
-                                <p className='mb-1'>Upload course thumbnail</p>
+                        <div className='w-[17.5rem] sm:w-[23rem] md:w-[43vw] lg:w-[28rem]'>
+                            <label htmlFor="thumbnail" className='capitalize cursor-pointer text-[#828D9A] font-semibold text-[0.9rem]  tracking-wide'>
+                                <p className='mb-1'>Upload Course thumbnail</p>
                                 {
-                                    input.courseImage ? <img src={input.courseImage} alt="" className='border w-[17.5rem] sm:w-[23rem] sm:h-[12rem] md:w-[43vw] lg:w-[28rem] h-[9rem] rounded object-cover' /> :
-                                        <img src={uploadImg} alt="" className='border w-[17.5rem] sm:w-[23rem] sm:h-[12rem] md:w-[43vw] lg:w-[28rem] h-[9rem] rounded object-cover' />
+                                    input.courseImage ?
+
+                                        (
+                                            <img src={input.courseImage} alt="" className='border w-[17.5rem] sm:w-[23rem] sm:h-[12rem] md:w-[43vw] lg:w-[28rem] h-[9rem] rounded object-cover' />
+
+                                        )
+                                        : <img src={uploadImg} alt="" className='border w-[17.5rem] sm:w-[23rem] sm:h-[12rem] md:w-[43vw] lg:w-[28rem] h-[9rem] rounded object-cover' />
                                 }
                             </label>
-                            <input onChange={getCourseImage} type="file" id='image_uploads' name='image_uploads' className='hidden' accept='.jpg, .jpeg, .png, .svg' />
+                            <input onChange={getCourseImage} type="file" id='thumbnail' name='thumbnail' className='cursor-pointer border border-[#2d3a4b] p-2 focus:border-[#745FDC] w-full  outline-none' accept='.jpg, .jpeg, .png, .svg' />
                         </div>
                         <div className='w-[17.5rem] sm:w-[23rem] md:w-[43vw] lg:w-[28rem] flex flex-col items-start gap-1'>
                             <label htmlFor="title"
