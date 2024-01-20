@@ -1,0 +1,7 @@
+{
+    "docify.commentService.programmingLanguage": "auto-detect",
+    "docify.commentService.docstringFormat": "JsDoc",
+    "docify.commentService.sidePanelReviewMode": true,
+    "docwriter.progress.trackMethods": true,
+    "docwriter.progress.trackClasses": true
+}
