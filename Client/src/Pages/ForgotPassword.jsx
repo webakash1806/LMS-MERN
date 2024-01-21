@@ -71,7 +71,7 @@ const ForgotPassword = () => {
                     </div>
 
                     <button type='submit' className='bg-[#FFB827] hover:bg-[#fbb66d] duration-300 mt-2 text-[#000] w-full rounded-md p-[5px] font-semibold text-[1.05rem]'>Send reset link</button>
-                    <p className='mt-2'>Don&#39;t have an account? <Link to='/LMS-Client/register' className='underline text-[#FFB827]'>Register</Link></p>
+                    <p className='mt-2'>Don&#39;t have an account? <Link to='/zenstudy/register' className='underline text-[#FFB827]'>Register</Link></p>
 
                 </form>
 

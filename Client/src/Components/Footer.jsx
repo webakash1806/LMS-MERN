@@ -9,13 +9,18 @@ import {
     BsWhatsapp
 } from 'react-icons/bs'
 
+import zenstudyLogo from '../assets/zenstudyLogo.png'
+
 const Footer = () => {
+
+    const year = new Date().getFullYear()
+
     return (
         <>
             <footer className=' bg-[#1B2124] text-white'>
                 <div className='p-[2.5rem_1rem] md:p-[2.5_5rem] flex flex-col gap-8 lg:flex-row sm:justify-around'>
                     <div className='flex flex-col gap-2'>
-                        <div className='mb-3'>LOGO</div>
+                        <div className='mb-3'><img className='w-[8rem]' src={zenstudyLogo} alt="" /></div>
                         {/* <img src="" alt="" /> */}
                         <a href="" className='flex items-center gap-2 text-[0.83rem] font-[400] tracking-wide'><BsEnvelope /><span>itsakash18.06@gmail.com</span></a>
                         <a href="" className='flex items-center gap-2 text-[0.83rem] font-[400] tracking-wide'><BsTelephone /><span>+91 6207234759</span></a>
@@ -66,7 +71,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className='text-center text-[1.05rem] font-[600] p-3 border-t'>2024 <span>&#169;</span> | LMS</div>
+                <div className='text-center text-[1.05rem] font-[600] p-3 border-t'><span>&#169;</span> {year} | Copyright webakash1806</div>
             </footer>
         </>
     )

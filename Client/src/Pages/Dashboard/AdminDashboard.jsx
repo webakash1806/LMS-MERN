@@ -161,10 +161,10 @@ const AdminDashboard = () => {
                                                 <div onClick={() => onCourseDelete(course?._id)} className=' w-fit bg-[#182037] p-2 rounded-md cursor-pointer text-[1.7rem] text-[#C426F9]'>
                                                     <MdDelete />
                                                 </div>
-                                                <div onClick={() => navigate('/LMS-Client/course/update', { state: { ...course } })} className=' w-fit bg-[#182037] p-2 rounded-md cursor-pointer text-[1.5rem] text-[#50da26]'>
+                                                <div onClick={() => navigate('/zenstudy/course/update', { state: { ...course } })} className=' w-fit bg-[#182037] p-2 rounded-md cursor-pointer text-[1.5rem] text-[#50da26]'>
                                                     <FaEdit />
                                                 </div>
-                                                <div onClick={() => navigate('/LMS-Client/course/lecture/add', { state: { ...course } })} className=' w-fit bg-[#182037] p-2 rounded-md cursor-pointer text-[1.5rem] text-[#26c8f9]'>
+                                                <div onClick={() => navigate('/zenstudy/course/lecture/add', { state: { ...course } })} className=' w-fit bg-[#182037] p-2 rounded-md cursor-pointer text-[1.5rem] text-[#26c8f9]'>
                                                     <MdAddBox />
                                                 </div>
                                             </td>

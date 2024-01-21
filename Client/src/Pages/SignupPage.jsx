@@ -85,7 +85,7 @@ const SignupPage = () => {
 
 
         if (response?.payload?.success) {
-            navigate("/LMS-Client");
+            navigate("/zenstudy");
         }
 
 
@@ -174,7 +174,7 @@ const SignupPage = () => {
                     </div>
                     <button type='submit' className='bg-[#FFB827] hover:bg-[#fbb66d] duration-300 mt-2 text-[#000] w-full rounded-md p-[5px] font-semibold text-[1.05rem]'>Register</button>
 
-                    <p className='mt-2'>Already have an account? <Link to='/LMS-Client/login' className='underline text-[#FFB827]'>Login</Link></p>
+                    <p className='mt-2'>Already have an account? <Link to='/zenstudy/login' className='underline text-[#FFB827]'>Login</Link></p>
                 </form>
 
             </div>

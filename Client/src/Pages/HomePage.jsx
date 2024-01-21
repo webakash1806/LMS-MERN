@@ -19,7 +19,7 @@ const HomePage = () => {
                             Explore diverse coding courses, master programming languages, and build real-world projects with expert-led online tutorials for comprehensive skill development.
                         </p>
                         <div>
-                            <Link to='/LMS-Client/course'>
+                            <Link to='/zenstudy/course'>
                                 <button className='bg-[#7479ff] p-2 px-8 font-[500] tracking-wide rounded-md text-[1.05rem] hover:bg-[#6368fa]'>
                                     Explore Courses
                                 </button>

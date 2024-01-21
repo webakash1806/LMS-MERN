@@ -36,7 +36,7 @@ const Lectures = () => {
 
     useEffect(() => {
         if (!state) {
-            return navigate('/LMS-Client/course')
+            return navigate('/zenstudy/course')
         }
         getLecturesList()
     }, [])
@@ -63,7 +63,7 @@ const Lectures = () => {
                                     </div>
                                 </div>
                                 <div className=' flex scroll-smooth flex-col md:h-[90vh] rounded-sm md:overflow-y-scroll overflow-x-hidden w-full md:w-[38vw] lg:w-[33vw]  scrollbar  scrollbar-thumb-gray-900 scrollbar-track-gray-600 scrollbar-thin '>
-                                    {role === 'ADMIN' ? <div className='p-4 flex w-full justify-end'><button onClick={() => navigate('/LMS-Client/course/lecture/add', { state: { ...state } })} className='cursor-pointer bg-[#ffc400] font-semibold text-black p-1 px-5 rounded-md text-[1.1rem]'>Add lecture</button></div>
+                                    {role === 'ADMIN' ? <div className='p-4 flex w-full justify-end'><button onClick={() => navigate('/zenstudy/course/lecture/add', { state: { ...state } })} className='cursor-pointer bg-[#ffc400] font-semibold text-black p-1 px-5 rounded-md text-[1.1rem]'>Add lecture</button></div>
                                         : ""}
                                     {lectures.map((data, index) =>
                                         <div key={data._id} >
@@ -76,7 +76,7 @@ const Lectures = () => {
                                                     (<div className='flex items-center justify-center gap-3 font-semibold '>
                                                         <button className='duration-300 rounded-[4px] p-1 px-3 bg-[#fc4e09] hover:bg-[#f44500]'
                                                             onClick={() => {
-                                                                navigate('/LMS-Client/course/lecture/update', { state: { ...currentLectureData } })
+                                                                navigate('/zenstudy/course/lecture/update', { state: { ...currentLectureData } })
                                                                 setCurrentLecture(index)
                                                             }}>Update</button>
                                                         <button className='duration-300 rounded-[4px] p-1 px-3 bg-[#e70000] hover:bg-[#e70000dd]' onClick={() => {
@@ -89,7 +89,7 @@ const Lectures = () => {
                                     )}
                                 </div>
                             </div> : <div className='p-4 flex w-full flex-col items-center justify-center mt-20 gap-4'><p className='text-[1.3rem]'>No lectures found</p>
-                                {role === 'ADMIN' ? <button onClick={() => navigate('/LMS-Client/course/lecture/add', { state: { ...state } })}
+                                {role === 'ADMIN' ? <button onClick={() => navigate('/zenstudy/course/lecture/add', { state: { ...state } })}
                                     className='cursor-pointer bg-[#ffc400] font-semibold text-black p-1 px-5 rounded-md text-[1.1rem]'>Add lecture</button> : ''}
                             </div>
                         }                    </div>
