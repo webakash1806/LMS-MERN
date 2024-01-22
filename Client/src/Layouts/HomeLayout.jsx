@@ -11,21 +11,21 @@ const HomeLayout = ({ children }) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-
     const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn)
-
+    const fullName = useSelector((state) => state?.auth?.data?.fullName)
+    const avatar = useSelector((state) => state?.auth?.data?.avatar)
     const role = useSelector((state) => state?.auth?.role)
 
     useEffect(() => {
 
-    }, [isLoggedIn, role])
+    }, [isLoggedIn, role, fullName, avatar])
 
     const handleLogout = async (e) => {
         e.preventDefault()
         const res = await dispatch(logout())
 
         if (res?.payload?.success) {
-            navigate("/LMS-Client")
+            navigate("/zenstudy")
         }
     }
 
@@ -59,25 +59,27 @@ const HomeLayout = ({ children }) => {
                                     <li><Link to='/zenstudy/about'>About</Link></li>
                                     <li><Link to='/zenstudy/contact'>Contact</Link></li>
 
-                                    {!isLoggedIn ?
-                                        <div className='flex items-center justify-center gap-3 mt-1 '>
-                                            <Link to='/zenstudy/login' className='btn btn-primary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
-                                                Login
-                                            </Link>
-                                            <Link to='/zenstudy/register' className='btn btn-secondary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
-                                                Register
-                                            </Link>
-                                        </div>
-                                        :
-                                        <div className='flex items-center justify-center gap-3 mt-1'>
-                                            <Link to='/zenstudy/me' className='btn btn-primary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
-                                                Profile
-                                            </Link>
-                                            <Link to='/zenstudy/logout' onClick={handleLogout} className='btn btn-secondary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
-                                                Logout
-                                            </Link>
-                                        </div>
-                                    }
+                                    <div className='ml-6'>
+                                        {!isLoggedIn ?
+                                            <div className='flex items-center justify-center gap-3  '>
+                                                <Link to='/zenstudy/login' className='btn btn-primary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
+                                                    Login
+                                                </Link>
+                                                <Link to='/zenstudy/register' className='btn btn-secondary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
+                                                    Register
+                                                </Link>
+                                            </div>
+                                            :
+                                            <div className='flex items-center justify-center gap-4'>
+                                                <Link to='/zenstudy/me' >
+                                                    <img src={avatar?.secure_url} alt={`${fullName} img`} className='w-[2.3rem] h-[2.3rem] rounded-full object-cover shadow-[0px_0px_6px_#808080]' />
+                                                </Link>
+                                                <Link to='/zenstudy/logout' onClick={handleLogout} className='btn btn-secondary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
+                                                    Logout
+                                                </Link>
+                                            </div>
+                                        }
+                                    </div>
                                 </ul>
                             </div>
                         </div>
@@ -88,50 +90,47 @@ const HomeLayout = ({ children }) => {
                     </div>
                     <div className="drawer-side">
                         <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
-                        <ul className="menu p-4 w-80 min-h-full bg-base-200">
+                        <ul className="justify-between menu p-4 w-80 min-h-full bg-base-200">
                             {/* Sidebar content here */}
-                            <Link to={'/zenstudy'} className="m-[0_auto] border-b mb-6 w-full pb-2 flex items-center justify-around border-slate-500"><img className='w-[9.5rem]' src={zenstudyLogo} alt="" /></Link>
-                            <li><Link to='/zenstudy'>Home</Link></li>
-                            {isLoggedIn && role === 'ADMIN' && (
-                                <li><Link to='/zenstudy/admin/dashboard'>Dashboard</Link></li>
-                            )}
-                            {isLoggedIn && role === 'ADMIN' && (
-                                <li><Link to='/zenstudy/course/create'>Create Course</Link></li>
-                            )}
-                            <li><Link to='/zenstudy/course'>Course</Link></li>
-                            <li><Link to='/zenstudy/about'>About</Link></li>
-                            <li><Link to='/zenstudy/contact'>Contact</Link></li>
-
-                        </ul>
-                        <div className='absolute bottom-7 left-7'>
-                            {!isLoggedIn ?
-                                <div className='flex items-center justify-center gap-3 mt-4 '>
-                                    <Link to='/zenstudy/login' className='btn btn-primary btn-sm rounded-md px-9 text-[1.03rem] tracking-wide'>
-                                        Login
-                                    </Link>
-                                    <Link to='/zenstudy/register' className='btn btn-secondary btn-sm rounded-md px-9 text-[1.03rem] tracking-wide'>
-                                        Register
-                                    </Link>
-                                </div>
-                                :
-                                <div>
-                                    <div>
-                                        profile
-                                    </div>
+                            <div>
+                                <Link to={'/zenstudy'} className="m-[0_auto] border-b mb-6 w-full pb-2 flex items-center justify-around border-slate-500"><img className='w-[9.5rem]' src={zenstudyLogo} alt="" /></Link>
+                                <li><Link to='/zenstudy'>Home</Link></li>
+                                {isLoggedIn && role === 'ADMIN' && (
+                                    <li><Link to='/zenstudy/admin/dashboard'>Dashboard</Link></li>
+                                )}
+                                {isLoggedIn && role === 'ADMIN' && (
+                                    <li><Link to='/zenstudy/course/create'>Create Course</Link></li>
+                                )}
+                                <li><Link to='/zenstudy/course'>Course</Link></li>
+                                <li><Link to='/zenstudy/about'>About</Link></li>
+                                <li><Link to='/zenstudy/contact'>Contact</Link></li>
+                            </div>
+                            <div className='mb-6'>
+                                {!isLoggedIn ?
                                     <div className='flex items-center justify-center gap-3 mt-4 '>
-                                        <Link to='/zenstudy/me' className='btn btn-primary btn-sm rounded-md px-9 text-[1.03rem] tracking-wide'>
-                                            Profile
+                                        <Link to='/zenstudy/login'
+                                            className='btn btn-primary btn-sm rounded-md px-9 text-[1.03rem] tracking-wide'>
+                                            Login
                                         </Link>
-                                        <Link to='/zenstudy/logout' onClick={handleLogout} className='btn btn-secondary btn-sm rounded-md px-9 text-[1.03rem] tracking-wide'>
+                                        <Link to='/zenstudy/register'
+                                            className='btn btn-secondary btn-sm rounded-md px-9 text-[1.03rem] tracking-wide'>
+                                            Register
+                                        </Link>
+                                    </div>
+                                    :
+                                    <div className='flex flex-col gap-2'>
+                                        <Link to='/zenstudy/me' className='flex items-center justify-evenly p-2 gap-4 rounded-md  w-[16.5rem] ml-3 cursor-pointer bg-gray-800 hover:bg-[#0d011c] duration-300'>
+                                            <img src={avatar?.secure_url} alt={`${fullName} img`} className='w-[2.3rem] h-[2.3rem] rounded-full object-cover shadow-[0px_0px_6px_#808080]' />
+                                            <p className='text-[1.1rem] text-white capitalize'>{fullName}</p>
+                                        </Link>
+                                        <Link to='/zenstudy/logout' onClick={handleLogout} className='w-[16.5rem] ml-3 btn btn-secondary btn-sm rounded-md px-9 text-[1.03rem] tracking-wide'>
                                             Logout
                                         </Link>
-                                    </div>
-                                </div>
-                            }
-                        </div>
+                                    </div>}
+                            </div>
+                        </ul>
                     </div>
                 </div>
-
                 <Footer />
             </div>
         </>

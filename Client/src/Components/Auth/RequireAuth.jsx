@@ -9,7 +9,7 @@ const RequireAuth = ({ allowedRoles }) => {
 
     return isLoggedIn && allowedRoles.find((myRole) => myRole == role) ? (
         <Outlet />
-    ) : isLoggedIn ? (<Navigate to='/LMS-Client/denied' />) : (<Navigate to="/LMS-Client/login" />)
+    ) : isLoggedIn ? (<Navigate to='/zenstudy/denied' />) : (<Navigate to="/zenstudy/login" />)
 
 }
 
