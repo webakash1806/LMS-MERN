@@ -8,6 +8,7 @@ import {
     BsTwitter,
     BsWhatsapp
 } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 
 import zenstudyLogo from '../assets/zenstudyLogo.png'
 
@@ -40,12 +41,12 @@ const Footer = () => {
                             </div>
                             <div className='mt-6 flex gap-4 justify-between pr-6'>
                                 <div className='flex flex-col gap-4 '>
-                                    <p className="text-[0.82rem] text-slate-300">About Us</p>
+                                    <Link to={'/zenstudy/about'} className="text-[0.82rem] text-slate-300">About Us</Link>
                                     <p className="text-[0.82rem] text-slate-300">FAQ</p>
                                     <p className="text-[0.82rem] text-slate-300">Privacy policy</p>
                                 </div>
                                 <div className='flex flex-col gap-4'>
-                                    <p className="text-[0.82rem] text-slate-300">Contact us</p>
+                                    <Link to={'/zenstudy/contact'} className="text-[0.82rem] text-slate-300">Contact us</Link>
                                     <p className="text-[0.82rem] text-slate-300">Job assurance</p>
                                     <p className="text-[0.82rem] text-slate-300">Terms & condition</p>
                                 </div>
@@ -58,7 +59,7 @@ const Footer = () => {
                             </div>
                             <div className='mt-6 flex gap-4 justify-between pr-6'>
                                 <div className='flex flex-col gap-4'>
-                                    <p className="text-[0.82rem] text-slate-300">PW Skills Lab</p>
+                                    <p className="text-[0.82rem] text-slate-300">Skills Lab</p>
                                     <p className="text-[0.82rem] text-slate-300">Experience Portal</p>
                                     <p className="text-[0.82rem] text-slate-300">Hall Of fame</p>
                                 </div>

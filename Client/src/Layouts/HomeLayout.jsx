@@ -72,7 +72,7 @@ const HomeLayout = ({ children }) => {
                                             :
                                             <div className='flex items-center justify-center gap-4'>
                                                 <Link to='/zenstudy/me' >
-                                                    <img src={avatar?.secure_url} alt={`${fullName} img`} className='w-[2.3rem] h-[2.3rem] rounded-full object-cover shadow-[0px_0px_6px_#808080]' />
+                                                    <img src={avatar?.secure_url} alt={`${fullName} img`} className='w-[2.3rem] h-[2.3rem] rounded-full object-cover shadow-[0px_0px_5px_#7479FF]' />
                                                 </Link>
                                                 <Link to='/zenstudy/logout' onClick={handleLogout} className='btn btn-secondary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
                                                     Logout
