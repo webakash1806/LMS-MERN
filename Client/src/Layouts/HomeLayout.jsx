@@ -34,7 +34,7 @@ const HomeLayout = ({ children }) => {
             <div>
                 <div className="drawer">
                     <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-                    <div className="drawer-content flex flex-col">
+                    <div className="flex flex-col drawer-content">
                         {/* Navbar */}
                         <div className="w-full navbar bg-base-300">
                             <div className="flex-none lg:hidden">
@@ -61,7 +61,7 @@ const HomeLayout = ({ children }) => {
 
                                     <div className='ml-6'>
                                         {!isLoggedIn ?
-                                            <div className='flex items-center justify-center gap-3  '>
+                                            <div className='flex items-center justify-center gap-3 '>
                                                 <Link to='/zenstudy/login' className='btn btn-primary btn-sm rounded-md px-5 text-[1.03rem] tracking-wide'>
                                                     Login
                                                 </Link>
@@ -90,7 +90,7 @@ const HomeLayout = ({ children }) => {
                     </div>
                     <div className="drawer-side">
                         <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
-                        <ul className="justify-between menu p-4 w-80 min-h-full bg-base-200">
+                        <ul className="justify-between min-h-full p-4 menu w-80 bg-base-200">
                             {/* Sidebar content here */}
                             <div>
                                 <Link to={'/zenstudy'} className="m-[0_auto] border-b mb-6 w-full pb-2 flex items-center justify-around border-slate-500"><img className='w-[9.5rem]' src={zenstudyLogo} alt="" /></Link>

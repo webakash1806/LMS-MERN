@@ -1,13 +1,13 @@
 import { ArcElement, BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, Title, Tooltip } from 'chart.js'
 import React, { useEffect } from 'react'
-import { Bar, Doughnut, Pie } from 'react-chartjs-2'
+import { Bar, Doughnut } from 'react-chartjs-2'
 import { FaEdit } from 'react-icons/fa'
 import { FaUsers } from 'react-icons/fa'
 import { FcSalesPerformance } from 'react-icons/fc'
 import { GiMoneyStack } from 'react-icons/gi'
 import { MdAddBox, MdDelete } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import HomeLayout from '../../Layouts/HomeLayout'
 import { deleteCourse, getAllCourses } from '../../Redux/Slices/CourseSlice'
@@ -84,13 +84,13 @@ const AdminDashboard = () => {
         <HomeLayout>
             <div className='bg-[#0E1122] text-white min-h-[90vh] gap-5 w-full overflow-x-hidden flex flex-col items-center justify-center'>
                 <h1 className='border-b border-[#c30d9f] rounded-lg shadow-sm shadow-[#1292F6] text-[1.6rem] font-semibold tracking-wide m-2 px-6 p-2'>Admin Dashboard</h1>
-                <div className='flex items-center flex-wrap gap-20 flex-col lg:gap-16 lg:flex-row justify-around h-full'>
-                    <div className='flex items-center justify-center flex-col gap-4'>
+                <div className='flex flex-col flex-wrap items-center justify-around h-full gap-20 lg:gap-16 lg:flex-row'>
+                    <div className='flex flex-col items-center justify-center gap-4'>
                         <div className='bg-[#182037] p-4 w-[19rem] sm:w-[29rem] lg:w-[20rem] h-[19rem]  pb-0 rounded-lg text-white flex items-center justify-center flex-col'>
                             <p className='text-center text-[0.85rem] font-semibold tracking-wide'>User Data</p>
                             <Doughnut data={userStats} className='' />
                         </div>
-                        <div className='grid grid-cols-1 sm:grid-cols-2 gap-5 lg:grid-cols-1'>
+                        <div className='grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-1'>
                             <div className='bg-[#182037] p-4 px-12 lg:px-14 rounded-lg flex  gap-10  items-center justify-center'>
                                 <FaUsers className='text-[3rem] text-[#26a5f9]' />
                                 <div className='text-center'>
@@ -111,7 +111,7 @@ const AdminDashboard = () => {
                         <div className='h-[20rem] w-[100vw]  sm:px-8 sm:w-[80vw] md:w-[35rem] lg:w-[40rem]'>
                             <Bar data={salesData} />
                         </div>
-                        <div className='grid grid-cols-1 sm:grid-cols-2 gap-5'>
+                        <div className='grid grid-cols-1 gap-5 sm:grid-cols-2'>
                             <div className='bg-[#182037] p-4 px-12   rounded-lg flex  gap-10  items-center justify-center'>
                                 <FcSalesPerformance className='text-[3rem] text-[#26a5f9]' />
                                 <div className='text-center'>

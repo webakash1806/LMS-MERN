@@ -28,48 +28,78 @@ const HomePage = () => {
                     </div>
                     <div>
                         <div className="w-64 carousel rounded-box" >
-                            <div className="carousel-item w-full">
+                            <div className="w-full carousel-item">
                                 <img src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg" className="w-full" alt="Tailwind CSS Carousel component" />
                             </div>
-                            <div className="carousel-item w-full">
+                            <div className="w-full carousel-item">
                                 <img src="https://daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg" className="w-full" alt="Tailwind CSS Carousel component" />
                             </div>
-                            <div className="carousel-item w-full">
+                            <div className="w-full carousel-item">
                                 <img src="https://daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.jpg" className="w-full" alt="Tailwind CSS Carousel component" />
                             </div>
-                            <div className="carousel-item w-full">
+                            <div className="w-full carousel-item">
                                 <img src="https://daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg" className="w-full" alt="Tailwind CSS Carousel component" />
                             </div>
-                            <div className="carousel-item w-full">
+                            <div className="w-full carousel-item">
                                 <img src="https://daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg" className="w-full" alt="Tailwind CSS Carousel component" />
                             </div>
-                            <div className="carousel-item w-full">
+                            <div className="w-full carousel-item">
                                 <img src="https://daisyui.com/images/stock/photo-1559181567-c3190ca9959b.jpg" className="w-full" alt="Tailwind CSS Carousel component" />
                             </div>
-                            <div className="carousel-item w-full">
+                            <div className="w-full carousel-item">
                                 <img src="https://daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.jpg" className="w-full" alt="Tailwind CSS Carousel component" />
                             </div>
                         </div>
                     </div>
                 </main>
+                <section className='flex items-center justify-center w-full gap-4'>
+                    <div className='mt-4 flex w-fit gap-4  rounded-md bg-[#15191E] shadow-[2px_2px_9px_#000,-2px_-2px_1px_#3a3b3a] p-2 flex-wrap items-center justify-center'>
+                        ICO
+                        <div className=''>
+                            <h1 className='font-bold text-[1.05rem]'>Heading</h1>
+                            <p>description</p>
+                        </div>
+                    </div>
+                    <div className='mt-4 flex w-fit gap-4  rounded-md bg-[#15191E] shadow-[2px_2px_9px_#000,-2px_-2px_1px_#3a3b3a] p-2 flex-wrap items-center justify-center'>
+                        ICO
+                        <div className=''>
+                            <h1 className='font-bold text-[1.05rem]'>Heading</h1>
+                            <p>description</p>
+                        </div>
+                    </div>
+                    <div className='mt-4 flex w-fit gap-4  rounded-md bg-[#15191E] shadow-[2px_2px_9px_#000,-2px_-2px_1px_#3a3b3a] p-2 flex-wrap items-center justify-center'>
+                        ICO
+                        <div className=''>
+                            <h1 className='font-bold text-[1.05rem]'>Heading</h1>
+                            <p>description</p>
+                        </div>
+                    </div>
+                    <div className='mt-4 flex w-fit gap-4  rounded-md bg-[#15191E] shadow-[2px_2px_9px_#000,-2px_-2px_1px_#3a3b3a] p-2 flex-wrap items-center justify-center'>
+                        ICO
+                        <div className=''>
+                            <h1 className='font-bold text-[1.05rem]'>Heading</h1>
+                            <p>description</p>
+                        </div>
+                    </div>
+                </section>
                 <section>
                     <div className='w-full p-5 py-12 sm:px-20 md:px-[10vw] lg:px-[25vw]'>
                         <div className=" join join-vertical w-full rounded-md shadow-[2px_2px_9px_#000,-2px_-2px_1px_#3a3b3a]">
                             <div className="collapse collapse-arrow join-item border border-[#2d3a4b] bg-[#1A202A]">
                                 <input type="radio" name="my-accordion-4" />
-                                <div className="collapse-title text-xl font-medium">
+                                <div className="text-xl font-medium collapse-title">
                                     Is the course live or recorded?
                                 </div>
-                                <div className="collapse-content text-white">
+                                <div className="text-white collapse-content">
                                     <p>All lectures are recorded.</p>
                                 </div>
                             </div>
                             <div className="collapse collapse-arrow join-item border border-[#2d3a4b] bg-[#1A202A]">
                                 <input type="radio" name="my-accordion-4" />
-                                <div className="collapse-title text-xl font-medium">
+                                <div className="text-xl font-medium collapse-title">
                                     Do the courses start from the basics ?
                                 </div>
-                                <div className="collapse-content text-white">
+                                <div className="text-white collapse-content">
                                     <p>Yes every course starts from the very basics until it is specifically mentioned otherwise.</p>
                                 </div>
                             </div>

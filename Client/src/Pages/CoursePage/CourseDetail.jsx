@@ -43,7 +43,7 @@ const CourseDetail = () => {
 
     return (
         <HomeLayout>
-            <div className='flex flex-col w-full items-center justify-center '>
+            <div className='flex flex-col items-center justify-center w-full '>
                 <div className='min-h-[90vh] w-full bg-gradient-to-b  overflow-x-hidden from-[#15191E]   to-[#111371ea]  flex flex-col text-white items-center gap-6 p-5 py-12 sm:px-20 md:px-4 lg:px-[10vw]'>
                     <div className='flex flex-col md:w-[90%] md:flex-row-reverse w-full items-center justify-around md:justify-between gap-3 md:gap-6'>
                         <img
@@ -77,28 +77,28 @@ const CourseDetail = () => {
                         </div>
                     </div>
                     <div className='mt-4 flex gap-2 flex-col w-[95%] sm:w-[90%] sm:flex-row sm:justify-evenly rounded-md bg-[#15191E] shadow-[2px_2px_9px_#000,-2px_-2px_1px_#3a3b3a] p-2 flex-wrap items-start justify-center md:gap-6'>
-                        <div className=' sm:text-center p-2'>
+                        <div className='p-2 sm:text-center'>
                             <p className='text-[1.25rem] capitalize font-semibold tracking-wide'>{state?.category}</p>
                             <p className='text-[0.85rem] font text-[#dbdbdb] tracking-wide'>Category</p>
                         </div>
-                        <div className=' sm:text-center p-2'>
+                        <div className='p-2 sm:text-center'>
                             <p className='text-[1.25rem] capitalize font-semibold tracking-wide'>{state?.language}</p>
                             <p className='text-[0.85rem] font text-[#dbdbdb] tracking-wide'>Language</p>
                         </div>
-                        <div className=' sm:text-center p-2'>
+                        <div className='p-2 sm:text-center'>
                             <p className='text-[1.25rem] capitalize font-semibold tracking-wide'>{state?.numberOfLecture}</p>
                             <p className='text-[0.85rem] font text-[#dbdbdb] tracking-wide'>Total Lectures</p>
                         </div>
-                        <div className=' sm:text-center p-2'>
+                        <div className='p-2 sm:text-center'>
                             <p className='text-[1.25rem] capitalize font-semibold tracking-wide'>{state?.createdBy}</p>
                             <p className='text-[0.85rem] font text-[#dbdbdb] tracking-wide'>Instructor</p>
                         </div>
-                        <div className=' sm:text-center p-2'>
+                        <div className='p-2 sm:text-center'>
                             <p className='text-[1.25rem] capitalize font-semibold tracking-wide'>10+</p>
                             <p className='text-[0.85rem] font text-[#dbdbdb] tracking-wide'>Hours of learning</p>
                         </div>
                     </div>
-                    <div className='mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 md:grid-cols-4'>
+                    <div className='grid grid-cols-1 gap-6 mt-8 sm:grid-cols-2 sm:gap-8 md:grid-cols-4'>
                         <div className='flex flex-col items-center w-[12rem]'>
                             <div className='p-[13px] w-fit rounded-full bg-[#C9F1FE]'><img className='w-[1.8rem]'
                                 src={eligibleImg} alt='Eligibility image' /></div>
@@ -129,19 +129,19 @@ const CourseDetail = () => {
                     <div className=" join join-vertical w-full rounded-md shadow-[2px_2px_9px_#000,-2px_-2px_1px_#3a3b3a]">
                         <div className="collapse collapse-arrow join-item border border-[#2d3a4b] bg-[#1A202A]">
                             <input type="radio" name="my-accordion-4" />
-                            <div className="collapse-title text-xl font-medium">
+                            <div className="text-xl font-medium collapse-title">
                                 Is the course live or recorded?
                             </div>
-                            <div className="collapse-content text-white">
+                            <div className="text-white collapse-content">
                                 <p>All lectures are recorded.</p>
                             </div>
                         </div>
                         <div className="collapse collapse-arrow join-item border border-[#2d3a4b] bg-[#1A202A]">
                             <input type="radio" name="my-accordion-4" />
-                            <div className="collapse-title text-xl font-medium">
+                            <div className="text-xl font-medium collapse-title">
                                 Do the courses start from the basics ?
                             </div>
-                            <div className="collapse-content text-white">
+                            <div className="text-white collapse-content">
                                 <p>Yes every course starts from the very basics until it is specifically mentioned otherwise.</p>
                             </div>
                         </div>

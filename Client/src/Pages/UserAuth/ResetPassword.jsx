@@ -4,8 +4,8 @@ import { BsPersonFill } from 'react-icons/bs'
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 
-import HomeLayout from '../Layouts/HomeLayout'
-import { resetPasswords } from '../Redux/Slices/AuthSlice'
+import HomeLayout from '../../Layouts/HomeLayout'
+import { resetPasswords } from '../../Redux/Slices/AuthSlice'
 
 const ResetPassword = () => {
 

@@ -12,7 +12,7 @@ const AboutUs = () => {
     return (
         <HomeLayout>
             <div className='p-2 px-4 md:px-10 sm:pt-6'>
-                <div className='flex flex-col sm:flex-row items-center justify-center gap-2 text-white'>
+                <div className='flex flex-col items-center justify-center gap-2 text-white sm:flex-row'>
                     <div className='text-center sm:w-[33vw]'>
                         <h1 className='text-[1.8rem] font-[610]  mb-3'>About Us</h1>
                         <p className='text-[0.9rem] font-[350] tracking-wide'>Welcome to [Your LMS Name], where education meets innovation! We are passionate about transforming the way people learn and grow, making education accessible, engaging, and effective.</p>
@@ -25,9 +25,9 @@ const AboutUs = () => {
                         <p className='text-[0.9rem] font-[350] tracking-wide'>At [Your LMS Name], our mission is to empower individuals and organizations with the tools they need to thrive in the digital age. We believe that learning is a lifelong journey, and our goal is to provide a dynamic and user-friendly platform that fosters continuous learning and professional development.</p>
                     </div>
                 </div>
-                <div className='flex flex-col items-center justify-center gap-2 text-white py-10'>
+                <div className='flex flex-col items-center justify-center gap-2 py-10 text-white'>
                     <h1 className='text-[1.8rem] font-[610]  mb-3 bg-[#1D232A] p-1 px-5 rounded-md'>Who We Are?</h1>
-                    <div className='flex flex-col gap-2 md:gap-4 sm:flex-row items-center justify-center'>
+                    <div className='flex flex-col items-center justify-center gap-2 md:gap-4 sm:flex-row'>
                         <div className='flex flex-col gap-2 md:gap-4'>
                             <div className="card max-w-[19rem] rounded-md bg-[#d0faf3e5] text-primary-content">
                                 <div className="card-body">
@@ -46,7 +46,7 @@ const AboutUs = () => {
                         </div>
                         <div className="card max-w-[19rem] rounded-md bg-[#dbddf9e5] text-primary-content h-[17rem] ">
                             <div className="card-body">
-                                <img src={innovationImg} alt="" className='w-10 shadow-md rounded-md bg-[#80808034]' />
+                                <img src={innovationImg} alt="" className='w-10 shadow-md rounded-md bg-[#945b5b34]' />
                                 <h2 className="card-title">Innovative!</h2>
                                 <p>We understand that every learner is unique, and that&#39;s why we offer a range of innovative solutions to cater to various learning styles.</p>
 
@@ -54,9 +54,9 @@ const AboutUs = () => {
                         </div>
                     </div>
                 </div>
-                <div className='flex flex-col items-center justify-center gap-2 text-white py-10'>
+                <div className='flex flex-col items-center justify-center gap-2 py-10 text-white'>
                     <h1 className='text-[1.8rem] font-[610]  mb-3 bg-[#1D232A] p-1 px-5 rounded-md '>What Sets Us Apart?</h1>
-                    <div className='flex flex-col gap-2 md:gap-4 sm:flex-row items-center justify-center'>
+                    <div className='flex flex-col items-center justify-center gap-2 md:gap-4 sm:flex-row'>
                         <div className="card max-w-[19rem] rounded-md bg-[#e6c2fbfb] text-primary-content h-[18.5rem] ">
                             <div className="card-body">
                                 <img src={userCentricDesignImg} alt="" className='w-10 shadow-md rounded-md bg-[#80808034]' />

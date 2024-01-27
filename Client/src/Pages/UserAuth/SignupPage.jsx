@@ -4,8 +4,8 @@ import { BsPersonCircle, BsPersonFill } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
-import HomeLayout from '../Layouts/HomeLayout'
-import { createAccount } from '../Redux/Slices/AuthSlice';
+import HomeLayout from '../../Layouts/HomeLayout'
+import { createAccount } from '../../Redux/Slices/AuthSlice';
 
 const SignupPage = () => {
 

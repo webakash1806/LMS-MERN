@@ -4,8 +4,8 @@ import { BsPersonFill } from 'react-icons/bs'
 import { useDispatch } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-import HomeLayout from '../Layouts/HomeLayout'
-import { changePassword } from '../Redux/Slices/AuthSlice'
+import HomeLayout from '../../Layouts/HomeLayout'
+import { changePassword } from '../../Redux/Slices/AuthSlice'
 
 const ChangePassword = () => {
 
