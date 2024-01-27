@@ -44,9 +44,9 @@ const Lectures = () => {
         <div className='h-[100vh] overflow-hidden'>
             <HomeLayout>
                 <div className='w-full h-[90vh] overflow-x-hidden flex flex-col scrollbar  scrollbar-thumb-gray-900 scrollbar-track-gray-600 scrollbar-thin'>
-                    <div className='mx-1  flex flex-col items-center md:items-start gap-2 text-white'>
+                    <div className='flex flex-col items-center gap-2 mx-1 text-white md:items-start'>
                         {lectures && (lectures.length > 0) ?
-                            <div className=' flex w-full overflow-hidden flex-col md:flex-row md:gap-0 gap-4 items-center justify-center md:items-start'>
+                            <div className='flex flex-col items-center justify-center w-full gap-4 overflow-hidden  md:flex-row md:gap-0 md:items-start'>
                                 <div className='md:h-[90vh] scrollbar  scrollbar-thumb-gray-900 scrollbar-track-gray-600 scrollbar-thin overflow-x-hidden md:overflow-y-scroll flex md:items-start md:justify-start items-center justify-center flex-col'>
                                     <div className='flex items-center justify-start p-3 md:px-12 md:w-[62vw] lg:w-[67vw] w-[97vw] gap-4 bg-[#0d0f12] shadow-[2px_2px_9px_#808080,-2px_-2px_1px_#3a3b3a] border border-[#4d64aeb7]'>
                                         <BsArrowLeftCircle onClick={() => navigate(-1)} className='text-[1.7rem] md:text-[2.5rem] cursor-pointer' />
@@ -63,7 +63,7 @@ const Lectures = () => {
                                     </div>
                                 </div>
                                 <div className=' flex scroll-smooth flex-col md:h-[90vh] rounded-sm md:overflow-y-scroll overflow-x-hidden w-full md:w-[38vw] lg:w-[33vw]  scrollbar  scrollbar-thumb-gray-900 scrollbar-track-gray-600 scrollbar-thin '>
-                                    {role === 'ADMIN' ? <div className='p-4 flex w-full justify-end'><button onClick={() => navigate('/zenstudy/course/lecture/add', { state: { ...state } })} className='cursor-pointer bg-[#ffc400] font-semibold text-black p-1 px-5 rounded-md text-[1.1rem]'>Add lecture</button></div>
+                                    {role === 'ADMIN' ? <div className='flex justify-end w-full p-4'><button onClick={() => navigate('/zenstudy/course/lecture/add', { state: { ...state } })} className='cursor-pointer bg-[#ffc400] font-semibold text-black p-1 px-5 rounded-md text-[1.1rem]'>Add lecture</button></div>
                                         : ""}
                                     {lectures.map((data, index) =>
                                         <div key={data._id} >
@@ -88,7 +88,7 @@ const Lectures = () => {
                                         </div>
                                     )}
                                 </div>
-                            </div> : <div className='p-4 flex w-full flex-col items-center justify-center mt-20 gap-4'><p className='text-[1.3rem]'>No lectures found</p>
+                            </div> : <div className='flex flex-col items-center justify-center w-full gap-4 p-4 mt-20'><p className='text-[1.3rem]'>No lectures found</p>
                                 {role === 'ADMIN' ? <button onClick={() => navigate('/zenstudy/course/lecture/add', { state: { ...state } })}
                                     className='cursor-pointer bg-[#ffc400] font-semibold text-black p-1 px-5 rounded-md text-[1.1rem]'>Add lecture</button> : ''}
                             </div>

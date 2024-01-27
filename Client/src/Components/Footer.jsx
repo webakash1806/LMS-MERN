@@ -39,7 +39,7 @@ const Footer = () => {
                                 <p className='text-[1.09rem] font-[600]'>Company</p>
                                 <p className='w-[15rem] m-[9px_0] h-[3.4px] bg-[#ff9500] rounded-md'></p>
                             </div>
-                            <div className='mt-6 flex gap-4 justify-between pr-6'>
+                            <div className='flex justify-between gap-4 pr-6 mt-6'>
                                 <div className='flex flex-col gap-4 '>
                                     <Link to={'/zenstudy/about'} className="text-[0.82rem] text-slate-300">About Us</Link>
                                     <p className="text-[0.82rem] text-slate-300">FAQ</p>
@@ -57,7 +57,7 @@ const Footer = () => {
                                 <p className='text-[1.09rem] font-[600]'>Products</p>
                                 <p className='w-[15rem] m-[9px_0] h-[3.3px] bg-[#ff9500] rounded-md'></p>
                             </div>
-                            <div className='mt-6 flex gap-4 justify-between pr-6'>
+                            <div className='flex justify-between gap-4 pr-6 mt-6'>
                                 <div className='flex flex-col gap-4'>
                                     <p className="text-[0.82rem] text-slate-300">Skills Lab</p>
                                     <p className="text-[0.82rem] text-slate-300">Experience Portal</p>
