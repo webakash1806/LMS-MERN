@@ -1,6 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import customerIcon from '../assets/customer.png'
+import eduIcon from '../assets/edu.png'
+import jobIcon from '../assets/job.png'
+import perfIcon from '../assets/perf.png'
 import HomeLayout from '../Layouts/HomeLayout'
 const HomePage = () => {
 
@@ -53,29 +57,29 @@ const HomePage = () => {
                     </div>
                 </main>
                 <section className='flex items-center justify-center w-full gap-4'>
-                    <div className='mt-4 flex w-fit gap-4  rounded-md bg-[#15191E] shadow-[2px_2px_9px_#000,-2px_-2px_1px_#3a3b3a] p-2 flex-wrap items-center justify-center'>
-                        ICO
+                    <div className='mt-4 flex w-fit gap-4 px-4 pr-6 rounded-md bg-[#15191E] shadow-[2px_2px_9px_#000,-2px_-2px_1px_#3a3b3a] p-2 flex-wrap items-center justify-center'>
+                        <img src={perfIcon} alt="" className='p-[5px] rounded-sm w-10 bg-[#ff770062]' />
                         <div className=''>
                             <h1 className='font-bold text-[1.05rem]'>Heading</h1>
                             <p>description</p>
                         </div>
                     </div>
-                    <div className='mt-4 flex w-fit gap-4  rounded-md bg-[#15191E] shadow-[2px_2px_9px_#000,-2px_-2px_1px_#3a3b3a] p-2 flex-wrap items-center justify-center'>
-                        ICO
+                    <div className='mt-4 flex w-fit gap-4 px-4 pr-6 rounded-md bg-[#15191E] shadow-[2px_2px_9px_#000,-2px_-2px_1px_#3a3b3a] p-2 flex-wrap items-center justify-center'>
+                        <img src={eduIcon} alt="" className='p-[5px] rounded-sm w-10 bg-[#6f7fe762]' />
                         <div className=''>
                             <h1 className='font-bold text-[1.05rem]'>Heading</h1>
                             <p>description</p>
                         </div>
                     </div>
-                    <div className='mt-4 flex w-fit gap-4  rounded-md bg-[#15191E] shadow-[2px_2px_9px_#000,-2px_-2px_1px_#3a3b3a] p-2 flex-wrap items-center justify-center'>
-                        ICO
+                    <div className='mt-4 flex w-fit gap-4 px-4 pr-6 rounded-md bg-[#15191E] shadow-[2px_2px_9px_#000,-2px_-2px_1px_#3a3b3a] p-2 flex-wrap items-center justify-center'>
+                        <img src={jobIcon} alt="" className='p-[5px] rounded-sm w-10 bg-[#00ff0062]' />
                         <div className=''>
                             <h1 className='font-bold text-[1.05rem]'>Heading</h1>
                             <p>description</p>
                         </div>
                     </div>
-                    <div className='mt-4 flex w-fit gap-4  rounded-md bg-[#15191E] shadow-[2px_2px_9px_#000,-2px_-2px_1px_#3a3b3a] p-2 flex-wrap items-center justify-center'>
-                        ICO
+                    <div className='mt-4 flex w-fit gap-4 px-4 pr-6 rounded-md bg-[#15191E] shadow-[2px_2px_9px_#000,-2px_-2px_1px_#3a3b3a] p-2 flex-wrap items-center justify-center'>
+                        <img src={customerIcon} alt="" className='p-[5px] rounded-sm w-10 bg-[#00d0ff62]' />
                         <div className=''>
                             <h1 className='font-bold text-[1.05rem]'>Heading</h1>
                             <p>description</p>
