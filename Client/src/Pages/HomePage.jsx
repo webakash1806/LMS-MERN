@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import customerIcon from '../assets/customer.png'
 import eduIcon from '../assets/edu.png'
+import HomeImg from '../assets/home.png'
 import jobIcon from '../assets/job.png'
 import perfIcon from '../assets/perf.png'
 import HomeLayout from '../Layouts/HomeLayout'
@@ -40,29 +41,7 @@ const HomePage = () => {
                         </div>
 
                         <div>
-                            <div className="w-64 carousel rounded-box" >
-                                <div className="w-full carousel-item">
-                                    <img src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg" className="w-full" alt="Tailwind CSS Carousel component" />
-                                </div>
-                                <div className="w-full carousel-item">
-                                    <img src="https://daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg" className="w-full" alt="Tailwind CSS Carousel component" />
-                                </div>
-                                <div className="w-full carousel-item">
-                                    <img src="https://daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.jpg" className="w-full" alt="Tailwind CSS Carousel component" />
-                                </div>
-                                <div className="w-full carousel-item">
-                                    <img src="https://daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg" className="w-full" alt="Tailwind CSS Carousel component" />
-                                </div>
-                                <div className="w-full carousel-item">
-                                    <img src="https://daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg" className="w-full" alt="Tailwind CSS Carousel component" />
-                                </div>
-                                <div className="w-full carousel-item">
-                                    <img src="https://daisyui.com/images/stock/photo-1559181567-c3190ca9959b.jpg" className="w-full" alt="Tailwind CSS Carousel component" />
-                                </div>
-                                <div className="w-full carousel-item">
-                                    <img src="https://daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.jpg" className="w-full" alt="Tailwind CSS Carousel component" />
-                                </div>
-                            </div>
+                            <img src={HomeImg} alt="" className='w-[30rem]' />
                         </div>
                     </div>
                     <div className='flex flex-wrap items-center justify-center w-full gap-4'>

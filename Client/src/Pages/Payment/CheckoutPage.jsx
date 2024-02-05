@@ -46,11 +46,8 @@ const CheckoutPage = () => {
                     paymentDetails.razorpay_signature = res.razorpay_signature
 
                 toast.success("Payment Successfull!")
-                console.log(paymentDetails)
                 const response = await dispatch(verifyPayment(paymentDetails))
-                console.log(response)
-                response?.payload?.success ? navigate('/LMS-Client/checkout/success') : navigate('/LMS-Client/checkout/fail')
-
+                response?.payload?.success ? navigate('/zenstudy/checkout/success') : navigate('/zenstudy/checkout/fail')
             }
         }
         const paymentObject = new window.Razorpay(options)
