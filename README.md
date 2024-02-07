@@ -63,3 +63,10 @@ cd ..
 cd frontend
 npm install
 ```
+
+
+<h2>💻 Tech Stack</h2>
+
+**Client:** React, Redux, TailwindCSS, ChartJS, DaisyUI
+
+**Server:** Node, Express, MongoDB, Cloudinary, Multer, SMTP, Razorpay
