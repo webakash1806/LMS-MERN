@@ -4,9 +4,14 @@ import { Link } from 'react-router-dom'
 
 import customerIcon from '../assets/customer.png'
 import eduIcon from '../assets/edu.png'
-import HomeImg from '../assets/home.png'
+import HomeImg from '../assets/Home.png'
+import javaImg from '../assets/javaImg.png'
 import jobIcon from '../assets/job.png'
+import jsImg from '../assets/jsImg.png'
 import perfIcon from '../assets/perf.png'
+import pyImg from '../assets/pyImg.png'
+import reactImg from '../assets/reactImg.png'
+import tsImg from '../assets/tsImg.png'
 import HomeLayout from '../Layouts/HomeLayout'
 const HomePage = () => {
 
@@ -40,11 +45,16 @@ const HomePage = () => {
                             </div>
                         </div>
 
-                        <div>
-                            <img src={HomeImg} alt="" className='w-[30rem]' />
+                        <div className='relative pt-16' >
+                            <img src={tsImg} alt="" className='w-[2.6rem] absolute top-[5rem] left-4 rounded-full p-[2px] shadow-[0px_0px_10px_#04ff96]' />
+                            <img src={reactImg} alt="" className='w-[2.5rem] rounded-full absolute top-[13rem] sm:top-[14.5rem] md:top-[17rem] right-[2rem] sm:right-10 md:right-12 md:w-[3rem] shadow-[0px_0px_8px#f5ba9f] p-[2.2px] animate-spin ' />
+                            <img src={jsImg} alt="" className='w-[2.3rem] absolute bottom-[5.5rem] animate-bounce' />
+                            <img src={pyImg} alt="" className='w-[2.7rem] absolute bottom-[-10px] right-0 bg-[#f8f6f7] p-[8px] rounded-full shadow-[0px_0px_8px_#14fff7] animate-pulse' />
+                            <img src={javaImg} alt="" className='w-[2.7rem] absolute top-10 right-6 shadow-[0px_0px_8px_#f2ace5] bg-[#F0F5FF] p-[6px] rounded-full' />
+                            <img src={HomeImg} alt="" className='w-[16rem] sm:w-[18rem] md:w-[22rem]' />
                         </div>
                     </div>
-                    <div className='flex flex-wrap items-center justify-center w-full gap-4'>
+                    <div className='flex flex-wrap items-center justify-center w-full gap-4 my-8'>
                         <div className='mt-4 flex w-fit gap-4 px-4 pr-6 rounded-md bg-[#15191E] shadow-[2px_2px_9px_#000,-2px_-2px_1px_#3a3b3a] p-2 flex-wrap items-center justify-center'>
                             <img src={perfIcon} alt="" className='p-[5px] rounded-sm w-10 bg-[#ff770062] ' />
                             <div className='min-w-[9.5rem]'>
