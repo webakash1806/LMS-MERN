@@ -47,7 +47,7 @@ const CheckoutPage = () => {
 
                 toast.success("Payment Successfull!")
                 const response = await dispatch(verifyPayment(paymentDetails))
-                response?.payload?.success ? navigate('/zenstudy/checkout/success') : navigate('/zenstudy/checkout/fail')
+                response?.payload?.success ? navigate('/checkout/success') : navigate('/checkout/fail')
             }
         }
         const paymentObject = new window.Razorpay(options)

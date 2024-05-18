@@ -1,6 +1,6 @@
 <h1 align="center" id="title">zenstudy</h1>
 
-<p align="center"><img src="https://socialify.git.ci/webakash1806/zenstudy/image?description=1&amp;descriptionEditable=Elevate%20your%20learning%20journey%20with%20our%20online%20education%20platform%2C%20offering%20diverse%20courses%20for%20personal%20and%20professional%20growth.&amp;font=Raleway&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Solid&amp;theme=Dark" alt="project-image"></p>
+<p align="center"><img src="https://socialify.git.ci/webakash1806/image?description=1&amp;descriptionEditable=Elevate%20your%20learning%20journey%20with%20our%20online%20education%20platform%2C%20offering%20diverse%20courses%20for%20personal%20and%20professional%20growth.&amp;font=Raleway&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Solid&amp;theme=Dark" alt="project-image"></p>
 
 <p id="description">ZenStudy is an innovative Learning Management System (LMS) built on the MERN (MongoDB Express.js React.js Node.js) stack. Designed with a focus on simplicity efficiency and user experience ZenStudy aims to revolutionize the way educational content is managed delivered and consumed.</p>
 

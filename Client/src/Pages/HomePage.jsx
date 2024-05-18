@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CountUp, { useCountUp } from 'react-countup'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import customerIcon from '../assets/customer.png'
@@ -12,13 +13,32 @@ import perfIcon from '../assets/perf.png'
 import pyImg from '../assets/pyImg.png'
 import reactImg from '../assets/reactImg.png'
 import tsImg from '../assets/tsImg.png'
+import CourseCard from '../Components/CourseCard'
 import HomeLayout from '../Layouts/HomeLayout'
+import { getAllCourses } from '../Redux/Slices/CourseSlice'
+
 const HomePage = () => {
+
+    const dispatch = useDispatch()
+
+    const { courseData } = useSelector((state) => state.course)
+
+    async function loadCourse() {
+        await dispatch(getAllCourses())
+    }
+
+    console.log(courseData)
 
     useCountUp({
         ref: 'counter',
         enableScrollSpy: true,
     });
+
+    const featuredCourse = [courseData[0], courseData[1]]
+
+    useEffect(() => {
+        loadCourse()
+    }, [])
 
     return (
 
@@ -37,7 +57,7 @@ const HomePage = () => {
                                 Explore diverse coding courses, master programming languages, and build real-world projects with expert-led online tutorials for comprehensive skill development.
                             </p>
                             <div>
-                                <Link to='/zenstudy/course'>
+                                <Link to='/course'>
                                     <button className='bg-[#7479ff] p-2 px-8 font-[500] tracking-wide rounded-md text-[1.05rem] hover:bg-[#6368fa]'>
                                         Explore Courses
                                     </button>
@@ -85,28 +105,42 @@ const HomePage = () => {
                         </div>
                     </div>
                 </main>
-                <section className='flex flex-wrap items-center justify-center w-full py-6 bg-white shadow-[0px_-5px_5px_#000_inset]'>
+                <section className='flex flex-wrap items-center justify-center w-full py-6 bg-[#cfebf6] shadow-[0px_-5px_5px_#000_inset]'>
                     <div className='flex w-[17rem] flex-col items-center justify-center  py-6'>
-                        <div className='text-[2.3rem] font-semibold tracking-wide text-black'><CountUp end={100000} enableScrollSpy /><span className='font-[450] text-[2.7rem]'>+</span>
+                        <div className='text-[2.3rem] font-semibold tracking-wide text-black'><CountUp end={100000} scrollSpyOnce /><span className='font-[450] text-[2.7rem]'>+</span>
                         </div>
                         <p className='text-[1.4rem] font-[500] tracking-wide text-[#ab4444]'>Student&apos;s Enrolled</p>
                     </div>
                     <div className='flex flex-col items-center justify-center py-6 w-[17rem]'>
-                        <div className='text-[2.3rem] font-semibold tracking-wide text-black'><CountUp end={106} enableScrollSpy /><span className='font-[450] text-[2.7rem]'><span className='text-[2.1rem] font-semibold'>K</span>+</span>
+                        <div className='text-[2.3rem] font-semibold tracking-wide text-black'><CountUp end={106} scrollSpyOnce /><span className='font-[450] text-[2.7rem]'><span className='text-[2.1rem] font-semibold'>K</span>+</span>
                         </div>
                         <p className='text-[1.4rem] font-[500] tracking-wide text-[#ab4444]'>Linkedin Member</p>
                     </div>
                     <div className='flex flex-col items-center justify-center py-6 w-[17rem]'>
-                        <div className='text-[2.3rem] font-semibold tracking-wide text-black'><CountUp end={1000} enableScrollSpy /><span className='font-[450] text-[2.7rem]'>+</span>
+                        <div className='text-[2.3rem] font-semibold tracking-wide text-black'><CountUp end={1000} scrollSpyOnce /><span className='font-[450] text-[2.7rem]'>+</span>
                         </div>
                         <p className='text-[1.4rem] font-[500] tracking-wide text-[#ab4444]'>Career Transition</p>
                     </div>
                     <div className='flex flex-col items-center justify-center py-6 w-[17rem]'>
-                        <div className='text-[2.3rem] font-semibold tracking-wide text-black'><CountUp end={1060} enableScrollSpy /><span className='font-[450] text-[2.7rem]'>+</span>
+                        <div className='text-[2.3rem] font-semibold tracking-wide text-black'><CountUp end={1060} scrollSpyOnce /><span className='font-[450] text-[2.7rem]'>+</span>
                         </div>
                         <p className='text-[1.4rem] font-[500] tracking-wide text-[#ab4444]'>Student&apos;s Placed</p>
                     </div>
 
+                </section>
+                <section>
+                    {courseData.length !== 0 &&
+                        <div className='min-h-[90vh] flex flex-col items-center justify-center'>
+                            <h1 className='p-6 text-[1.5rem] font-semibold text-white text-center'>Our
+                                <span className='text-[#F6C915] text-[1.65rem]'> Featured Courses</span></h1>
+                            <div className='flex flex-wrap gap-6 lg:w-[80vw] items-center justify-center'>
+                                {featuredCourse?.map((res) => {
+                                    console.log(res)
+                                    return <CourseCard key={res._id} data={res} />
+                                })}
+                            </div>
+
+                        </div>}
                 </section>
                 <section>
                     <div className='w-full p-5 py-12 sm:px-20 md:px-[10vw] lg:px-[25vw]'>

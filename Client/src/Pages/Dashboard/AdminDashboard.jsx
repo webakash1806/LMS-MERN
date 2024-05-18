@@ -132,7 +132,7 @@ const AdminDashboard = () => {
                     <div className='overflow-x-scroll w-[90vw] scrollbar mb-4 scrollbar-thumb-gray-900 scrollbar-track-gray-600 scrollbar-thin'>
                         <div className='flex flex-wrap border-b border-b-slate-600 items-center justify-around w-full bg-[#182037] rounded-t-lg p-4'>
                             <h2 className=' text-[1.6rem] font-semibold tracking-wide'>Courses Overview</h2>
-                            <button className='bg-[#c426f9] hover:bg-[#f516fd] font-semibold p-2 px-4 rounded-md text-white tracking-wide text-[1.1rem]' onClick={() => navigate('/LMS-Client/course/create')}>
+                            <button className='bg-[#c426f9] hover:bg-[#f516fd] font-semibold p-2 px-4 rounded-md text-white tracking-wide text-[1.1rem]' onClick={() => navigate('/course/create')}>
                                 Create new course
                             </button>
                         </div>
@@ -161,10 +161,10 @@ const AdminDashboard = () => {
                                                 <div onClick={() => onCourseDelete(course?._id)} className=' w-fit bg-[#182037] p-2 rounded-md cursor-pointer text-[1.7rem] text-[#C426F9]'>
                                                     <MdDelete />
                                                 </div>
-                                                <div onClick={() => navigate('/zenstudy/course/update', { state: { ...course } })} className=' w-fit bg-[#182037] p-2 rounded-md cursor-pointer text-[1.5rem] text-[#50da26]'>
+                                                <div onClick={() => navigate('/course/update', { state: { ...course } })} className=' w-fit bg-[#182037] p-2 rounded-md cursor-pointer text-[1.5rem] text-[#50da26]'>
                                                     <FaEdit />
                                                 </div>
-                                                <div onClick={() => navigate('/zenstudy/course/lecture/add', { state: { ...course } })} className=' w-fit bg-[#182037] p-2 rounded-md cursor-pointer text-[1.5rem] text-[#26c8f9]'>
+                                                <div onClick={() => navigate('/course/lecture/add', { state: { ...course } })} className=' w-fit bg-[#182037] p-2 rounded-md cursor-pointer text-[1.5rem] text-[#26c8f9]'>
                                                     <MdAddBox />
                                                 </div>
                                             </td>

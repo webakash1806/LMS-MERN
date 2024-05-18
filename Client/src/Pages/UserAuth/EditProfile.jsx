@@ -68,7 +68,7 @@ const EditProfile = () => {
         await dispatch(userProfile())
 
         if (response?.payload?.success)
-            navigate('/zenstudy/me')
+            navigate('/me')
         setData({
             fullName: "",
             avatar: "",

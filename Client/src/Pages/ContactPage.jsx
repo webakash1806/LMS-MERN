@@ -47,7 +47,7 @@ const ContactPage = () => {
             const contactResponse = await response
 
             if (contactResponse?.data?.success) {
-                navigate('/zenstudy')
+                navigate('/')
                 setUserInput({
                     name: "",
                     email: "",

@@ -26,7 +26,7 @@ const CourseDetail = () => {
         const response = await dispatch(deleteCourse(courseId))
 
         if (response?.payload?.success) {
-            navigate('/zenstudy/course')
+            navigate('/course')
         }
     }
 
@@ -55,9 +55,9 @@ const CourseDetail = () => {
 
                             {role === 'ADMIN' || data?.subscription?.status === 'active' ? (
                                 <div className='flex flex-wrap gap-x-4'>
-                                    <button onClick={() => navigate('/zenstudy/course/lectures', { state: { ...state } })} className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-6 text-[1.1rem] font-semibold rounded-md'>Watch Lectures</button>
+                                    <button onClick={() => navigate('/course/lectures', { state: { ...state } })} className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-6 text-[1.1rem] font-semibold rounded-md'>Watch Lectures</button>
                                     {role === 'ADMIN' ?
-                                        <div className='flex flex-wrap gap-x-4'> <button className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-6 text-[1.1rem] font-semibold rounded-md' onClick={() => navigate('/LMS-Client/course/update', { state: { ...state } })}>Update Course</button>
+                                        <div className='flex flex-wrap gap-x-4'> <button className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-6 text-[1.1rem] font-semibold rounded-md' onClick={() => navigate('/course/update', { state: { ...state } })}>Update Course</button>
                                             <button onClick={removeCourse} className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-6 text-[1.1rem] font-semibold rounded-md'>Delete Course</button>
                                         </div>
                                         : ""}
@@ -70,7 +70,7 @@ const CourseDetail = () => {
                                                 <strike>{state?.price.toFixed(2)}</strike></div>
                                             <p className='text-[#00ff59] text-[1rem] flex items-center gap-2'><img src={discountImg} alt="" className='w-[19px]' />{`${state?.discount}% Discount`}</p>
                                         </div>
-                                        <button onClick={() => navigate('/zenstudy/checkout')} className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-10 text-[1.1rem] font-semibold rounded-md'>Enroll now</button>
+                                        <button onClick={() => navigate('/checkout')} className='bg-[#FF6700] hover:bg-[#f94b00] duration-300 p-2 mt-4 px-10 text-[1.1rem] font-semibold rounded-md'>Enroll now</button>
                                     </div>
                                 )
                             }

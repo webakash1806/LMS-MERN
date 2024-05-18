@@ -30,34 +30,34 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/zenstudy" element={<HomePage />} />
-        <Route path="/zenstudy/about" element={<AboutUs />} />
-        <Route path="/zenstudy/contact" element={<ContactPage />} />
-        <Route path="/zenstudy/login" element={<LoginPage />} />
-        <Route path="/zenstudy/register" element={<SignupPage />} />
-        <Route path="/zenstudy/course" element={<CourseList />} />
-        <Route path="/zenstudy/course/description" element={<CourseDetail />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<SignupPage />} />
+        <Route path="/course" element={<CourseList />} />
+        <Route path="/course/description" element={<CourseDetail />} />
         <Route path="*" element={<PageNotFound />} />
-        <Route path="/zenstudy/denied" element={<AccessDeniedPage />} />
-        <Route path="/zenstudy/forgot-password" element={<ForgotPassword />} />
-        <Route path="/zenstudy/reset-password/:resetToken" element={<ResetPassword />} />
+        <Route path="/denied" element={<AccessDeniedPage />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password/:resetToken" element={<ResetPassword />} />
 
         <Route element={<RequireAuth allowedRoles={['ADMIN']} />}>
-          <Route path="/zenstudy/course/create" element={<CreateCourse />} />
-          <Route path="/zenstudy/course/lecture/add" element={<AddLecture />} />
-          <Route path="/zenstudy/course/update" element={<UpdateCourse />} />
-          <Route path="/zenstudy/course/lecture/update" element={<UpdateLecture />} />
-          <Route path="/zenstudy/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/course/create" element={<CreateCourse />} />
+          <Route path="/course/lecture/add" element={<AddLecture />} />
+          <Route path="/course/update" element={<UpdateCourse />} />
+          <Route path="/course/lecture/update" element={<UpdateLecture />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
         </Route>
 
         <Route element={<RequireAuth allowedRoles={['ADMIN', 'USER']} />}>
-          <Route path="/zenstudy/me" element={<Profile />} />
-          <Route path="/zenstudy/profile/edit" element={<EditProfile />} />
-          <Route path='/zenstudy/changePassword' element={<ChangePassword />} />
-          <Route path="/zenstudy/checkout" element={<CheckoutPage />} />
-          <Route path="/zenstudy/checkout/success" element={<CheckoutSuccess />} />
-          <Route path="/zenstudy/checkout/fail" element={<CheckoutFail />} />
-          <Route path="/zenstudy/course/lectures" element={<Lectures />} />
+          <Route path="/me" element={<Profile />} />
+          <Route path="/profile/edit" element={<EditProfile />} />
+          <Route path='/changePassword' element={<ChangePassword />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/checkout/success" element={<CheckoutSuccess />} />
+          <Route path="/checkout/fail" element={<CheckoutFail />} />
+          <Route path="/course/lectures" element={<Lectures />} />
         </Route>
       </Routes>
     </>

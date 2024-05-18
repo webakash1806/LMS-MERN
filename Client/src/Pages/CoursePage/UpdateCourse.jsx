@@ -85,7 +85,7 @@ const UpdateCourse = () => {
         const response = await dispatch(updateCourse(data))
 
         if (response?.payload?.success) {
-            navigate('/LMS-Client/course')
+            navigate('/course')
 
         }
 

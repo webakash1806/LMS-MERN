@@ -87,7 +87,7 @@ const CreateCourse = () => {
                 courseImage: "",
                 language: ""
             })
-            navigate('/LMS-Client/course')
+            navigate('/course')
 
         }
 

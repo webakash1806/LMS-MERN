@@ -50,15 +50,15 @@ const SignupPage = () => {
     async function createNewAccount(e) {
         e.preventDefault()
         const { userName, fullName, email, password, confirmPassword, avatar } = registerData
-        if (!userName || !fullName || !email || !password || !confirmPassword || !avatar) {
+        if (!userName || !fullName || !email || !password || !confirmPassword) {
             return toast.error('Please fill all the fields!')
         }
 
-        if (userName.length < 6) {
+        if (userName.length < 2) {
             return toast.error('User name is too short!')
         }
 
-        if (fullName.length < 6) {
+        if (fullName.length < 2) {
             return toast.error('Full name is too short!')
         }
 
@@ -85,7 +85,7 @@ const SignupPage = () => {
 
 
         if (response?.payload?.success) {
-            navigate("/zenstudy");
+            navigate("/");
         }
 
 
@@ -174,7 +174,7 @@ const SignupPage = () => {
                     </div>
                     <button type='submit' className='bg-[#FFB827] hover:bg-[#fbb66d] duration-300 mt-2 text-[#000] w-full rounded-md p-[5px] font-semibold text-[1.05rem]'>Register</button>
 
-                    <p className='mt-2'>Already have an account? <Link to='/zenstudy/login' className='underline text-[#FFB827]'>Login</Link></p>
+                    <p className='mt-2'>Already have an account? <Link to='/login' className='underline text-[#FFB827]'>Login</Link></p>
                 </form>
 
             </div>

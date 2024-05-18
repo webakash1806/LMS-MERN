@@ -4,13 +4,11 @@ import { useNavigate } from 'react-router-dom'
 
 const CourseCard = ({ data }) => {
 
-    console.log(data)
-
     const navigate = useNavigate()
 
     return (
         <div className='w-[17.5rem] h-[27rem] flex cursor-pointer  mt-2 flex-col border items-start gap-2 rounded-md overflow-hidden'
-            onClick={() => navigate("/zenstudy/course/description", { state: { ...data } })}>
+            onClick={() => navigate("/course/description", { state: { ...data } })}>
             <img className='w-full h-[40%] object-cover' src={data?.thumbnail?.secure_url} alt={`${data?.title} image`} />
             <div className='flex flex-col w-full gap-2 p-3 text-white'>
                 <h2 className='text-[1.35rem] font-[600] capitalize'>{data?.title}</h2>

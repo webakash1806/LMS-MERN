@@ -45,7 +45,7 @@ const LoginPage = () => {
         console.log(response)
 
         if (response?.payload?.success) {
-            navigate("/zenstudy");
+            navigate("/");
         }
 
 
@@ -88,12 +88,12 @@ const LoginPage = () => {
                             onChange={handleUserInput}
                             value={loginData.password} />
                     </div>
-                    <Link to={'/zenstudy/forgot-password'}
+                    <Link to={'/forgot-password'}
                         className='text-[0.95rem] underline text-[#d3d5fc] w-full mt-2'>Forgot Password</Link>
 
                     <button type='submit' className='bg-[#FFB827] hover:bg-[#fbb66d] duration-300 mt-2 text-[#000] w-full rounded-md p-[5px] font-semibold text-[1.05rem]'>Login</button>
 
-                    <p className='mt-2'>Don&#39;t have an account? <Link to='/zenstudy/register' className='underline text-[#FFB827]'>Register</Link></p>
+                    <p className='mt-2'>Don&#39;t have an account? <Link to='/register' className='underline text-[#FFB827]'>Register</Link></p>
                 </form>
 
             </div>

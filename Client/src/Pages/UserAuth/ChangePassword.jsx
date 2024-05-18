@@ -42,7 +42,7 @@ const ChangePassword = () => {
         console.log(response)
 
         if (response?.payload?.status)
-            navigate('/LMS-Client/me');
+            navigate('/me');
 
         setPasswordData({
             oldPassword: "",
