@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 
+import AttendanceForm from './Components/AttendanceForm'
 import RequireAuth from './Components/Auth/RequireAuth'
 import AboutUs from './Pages/AboutUs'
 import AccessDeniedPage from './Pages/AccessDeniedPage'
@@ -58,6 +59,7 @@ const App = () => {
           <Route path="/checkout/success" element={<CheckoutSuccess />} />
           <Route path="/checkout/fail" element={<CheckoutFail />} />
           <Route path="/course/lectures" element={<Lectures />} />
+          <Route path="/mark-attendance" element={<AttendanceForm />} />
         </Route>
       </Routes>
     </>

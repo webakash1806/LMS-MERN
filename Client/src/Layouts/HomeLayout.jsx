@@ -31,6 +31,9 @@ const HomeLayout = ({ children }) => {
 
     return (
         <>
+            <div className=''>
+
+            </div>
             <div>
                 <div className="drawer">
                     <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -58,6 +61,7 @@ const HomeLayout = ({ children }) => {
                                     <li><Link to='/course'>Course</Link></li>
                                     <li><Link to='/about'>About</Link></li>
                                     <li><Link to='/contact'>Contact</Link></li>
+                                    <li><Link to='/mark-attendance'>Mark Attendance</Link></li>
 
                                     <div className='ml-6'>
                                         {!isLoggedIn ?

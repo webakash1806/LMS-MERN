@@ -21,7 +21,7 @@ const HomePage = () => {
 
     const dispatch = useDispatch()
 
-    const { courseData } = useSelector((state) => state.course)
+    const { courseData } = useSelector((state) => state?.course)
 
     async function loadCourse() {
         await dispatch(getAllCourses())
@@ -129,14 +129,13 @@ const HomePage = () => {
 
                 </section>
                 <section>
-                    {courseData.length !== 0 &&
+                    {courseData?.length !== 0 &&
                         <div className='min-h-[90vh] flex flex-col items-center justify-center'>
                             <h1 className='p-6 text-[1.5rem] font-semibold text-white text-center'>Our
                                 <span className='text-[#F6C915] text-[1.65rem]'> Featured Courses</span></h1>
                             <div className='flex flex-wrap gap-6 lg:w-[80vw] items-center justify-center'>
                                 {featuredCourse?.map((res) => {
-                                    console.log(res)
-                                    return <CourseCard key={res._id} data={res} />
+                                    return <CourseCard key={res?._id} data={res} />
                                 })}
                             </div>
 

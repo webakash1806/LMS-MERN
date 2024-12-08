@@ -46,6 +46,25 @@ export const loginAccount = createAsyncThunk('/user/login', async (data) => {
 
 })
 
+export const markAttendance = createAsyncThunk('/user/mark-attendance', async (data) => {
+    try {
+        let res = axiosInstance.post('/user/mark-attendance', data)
+        toast.promise(res, {
+            loading: 'Wait! Marking attendance',
+            success: (data) => {
+                return data?.data.message
+            },
+            error: "failed to mark attendance"
+        })
+        // getting response resolved here
+        res = await res;
+        return res.data;
+    } catch (e) {
+        return toast.error(e?.response?.data?.message)
+    }
+
+})
+
 export const logout = createAsyncThunk('/user/logout', async () => {
     try {
         let res = axiosInstance.get('/user/logout')
